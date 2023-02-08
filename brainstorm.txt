@@ -1,0 +1,50 @@
+Types of Users
+
+Companies
+-----------------------
+Create Recruiter account
+Delete Recruiter account
+View recruiter schedules
+
+
+
+Company/Recruiter
+-----------------------
+View recruiter scehdule
+Edit recruiter account?
+
+
+Recruiters
+-----------------------
+Post job
+Schedule interview
+
+
+Recruiter/Jobseeker
+-----------------------
+View jobs
+View Recruiters
+View Jobseekers
+Email jobseeker
+Email recruiter
+
+
+Jobseekers
+-----------------------
+Post resumé
+Complete common form
+Update common form
+Post schedule
+
+
+
+
+
+
+Jobseeker/company
+-----------------------
+
+
+
+All
+-----------------------
