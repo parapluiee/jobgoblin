@@ -4,7 +4,7 @@ Companies
 -----------------------
 Create Recruiter account
 Delete Recruiter account
-View recruiter schedules
+Email Recruiter
 
 
 
@@ -16,17 +16,16 @@ Edit recruiter account?
 
 Recruiters
 -----------------------
-Post job
+Post/edit job
 Schedule interview
-
+Group potential employees
+Email company
 
 Recruiter/Jobseeker
 -----------------------
 View jobs
 View Recruiters
 View Jobseekers
-Email jobseeker
-Email recruiter
 
 
 Jobseekers
@@ -48,3 +47,5 @@ Jobseeker/company
 
 All
 -----------------------
+Email Recruiter
+Email Jobseeker
