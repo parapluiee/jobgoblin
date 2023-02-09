@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Centralized Job Market App
 > ### **JobGoblin**
 > "Easy listing, self advertisement, easy employment."
+>
+> - Eli Stafford, Jon Pelaez, Max Honeycutt
 
 ---
 ### **Our goal:**
