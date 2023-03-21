@@ -18,7 +18,7 @@ public class RecruiterController {
     @GetMapping("/home")
     public String getHomePage(Model model) {
         model.addAttribute("recruiterList", service.getAllRecruiters());
-        return "recruiter/list-recruiter";
+        return "recruiter/list-recruiters";
     }
 
     @GetMapping("/id={id}")

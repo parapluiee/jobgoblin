@@ -17,7 +17,6 @@ public class RecruiterRepository {
     NamedParameterJdbcTemplate template;
 
     List<Recruiter> findAll() {
-
         String query = "select id, name,email,description,startDate,rating from recruiter";
         return template.query(query,
                 (result, rowNum)
