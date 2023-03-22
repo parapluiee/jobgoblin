@@ -41,10 +41,10 @@ public class RecruiterRepository {
         paramMap.put("name", recruiter.getName());
         paramMap.put("email", recruiter.getEmail());
         paramMap.put("description", recruiter.getDescription());
-        paramMap.put("startDate", recruiter.getStartDate());
+        paramMap.put("start_date", recruiter.getStartDate());
         paramMap.put("rating", recruiter.getRating());
         String query = "INSERT INTO recruiter(name,email,description,start_date,rating) " +
-                "VALUES(:name, :email, :description, :startDate, :rating)";
+                "VALUES(:name, :email, :description, :start_date, :rating)";
         return template.update(query, paramMap);
     }
 
@@ -61,9 +61,9 @@ public class RecruiterRepository {
         paramMap.put("name", recruiter.getName());
         paramMap.put("email", recruiter.getEmail());
         paramMap.put("description", recruiter.getDescription());
-        paramMap.put("startDate", recruiter.getStartDate());
+        paramMap.put("start_date", recruiter.getStartDate());
         paramMap.put("rating", recruiter.getRating());
-        String query = "update recruiter set name=name, email=email, description=description,start_date=startDate, rating=rating, where id=id ";
+        String query = "update recruiter set name=:name, email=:email, description=:description,start_date=:start_date, rating=:rating where id=:id";
         template.update(query, paramMap);
     }
 }

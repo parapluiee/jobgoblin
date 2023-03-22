@@ -15,34 +15,34 @@ public class RecruiterController {
     @Autowired
     private RecruiterService service;
 
-    @GetMapping("/profile")
+    @GetMapping("/all")
     public String getHomePage(Model model) {
         model.addAttribute("recruiterList", service.getAllRecruiters());
         return "recruiter/list-recruiters";
     }
 
-    @GetMapping("/id={id}")
+    @GetMapping("/profile/id={id}")
     public String getRecruiter(@PathVariable long id, Model model) {
         model.addAttribute("recruiter", service.getRecruiter(id));
         return "recruiter/recruiter-detail";
     }
 
-    @GetMapping("/delete/id={id}")
+    @GetMapping("/profile/delete/id={id}")
     public String deleteRecruiter(@PathVariable long id, Model model) {
         service.deleteRecruiter(id);
-        return "redirect:/recruiter/profile";
+        return "redirect:/recruiter/profile/id={id}";
     }
 
     @PostMapping("/create")
     public String createRecruiter(Recruiter rec) {
         service.saveRecruiter(rec);
-        return "redirect:/recruiter/profile";
+        return "redirect:/recruiter/profile/id={rec.id}";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/profile/update")
     public String updateRecruiter(Recruiter rec) {
-        service.updateRecruiter(rec);
-        return "redirect:/recruiter/profile";
+        //service.updateRecruiter(rec);
+        return "redirect:/recruiter/profile/id={id}";
     }
 
     @GetMapping("/new-recruiter")
@@ -50,7 +50,7 @@ public class RecruiterController {
         return "recruiter/new-recruiter";
     }
 
-    @GetMapping("/update/id={id}")
+    @GetMapping("/profile/update/id={id}")
     public String updateRecruiterForm(@PathVariable long id, Model model) {
         model.addAttribute("recruiter", service.getRecruiter(id));
         return "recruiter/update-recruiter";

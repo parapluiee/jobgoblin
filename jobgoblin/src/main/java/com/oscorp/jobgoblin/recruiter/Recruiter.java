@@ -25,11 +25,11 @@ public class Recruiter {
 
 
 
-    public Recruiter(String email, String startDate, String description, String name, double rating) {
-        this.email=email;
-        this.startDate=startDate;
-        this.description=description;
+    public Recruiter(String name, String email, String description, String startDate, double rating) {
         this.name=name;
+        this.email=email;
+        this.description=description;
+        this.startDate=startDate;
         this.rating=rating;
     }
 

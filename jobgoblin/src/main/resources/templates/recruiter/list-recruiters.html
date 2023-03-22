@@ -14,11 +14,11 @@
     <body>
         <div class="container">
 
-            <h1 style="text-align:center;">Profile Page</h1>
+            <h1 style="text-align:center;">Company Recruits</h1>
 
             <div style="align-content: center;">
                 <p class="my-5">
-                    <a href="/recruiter/new-recruiter" class="btn btn-primary" >Add Recruiter</a>
+                    <a href="/recruiter/new-recruiter" class="btn btn-primary" >On-Board Recruiter</a>
                 </p>
 
                 <table class="table table-bordered">
@@ -34,12 +34,12 @@
                     </thead>
                     <tbody>
                         <tr th:each="recruiter : ${recruiterList}">
-                            <td> <a th:href="@{/recruiter/id={id}(id=${recruiter.id})}" th:text=" ${recruiter.id}" > </a></td>
+                            <td> <a th:href="@{/recruiter/profile/id={id}(id=${recruiter.id})}" th:text=" ${recruiter.id}" > </a></td>
                             <td th:text=" ${recruiter.name}"></td>
                             <td th:text=" ${recruiter.email}"></td>
-                            <td th:text=" ${recruiter.description}"></td>
-                            <td th:text=" ${recruiter.startDate}"></td>
-                            <td th:text=" ${recruiter.rating}"></td>
+<!--                            <td th:text=" ${recruiter.description}"></td>-->
+<!--                            <td th:text=" ${recruiter.startDate}"></td>-->
+<!--                            <td th:text=" ${recruiter.rating}"></td>-->
                         </tr>
 
                     </tbody>

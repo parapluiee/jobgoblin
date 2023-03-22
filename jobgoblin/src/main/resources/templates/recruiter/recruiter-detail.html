@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <h1 style="text-align:center;">Recruiter Info</h1>
+            <h1 style="text-align:center;">Recruiter Profile Page</h1>
             <div class="card" style="width: 18rem;">                
                 <div class="card-body">
                     <h5 class="card-title">Recruiter</h5>
@@ -23,8 +23,8 @@
                     <p class="card-text" th:text="'Description: '+${recruiter.description}" />
                     <p class="card-text" th:text="'Start Date: '+${recruiter.startDate}" />
                     <p class="card-text" th:text="'Rating: '+${recruiter.rating}" />
-                    <a th:href="@{/recruiter/update/id={id}(id=${recruiter.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/recruiter/delete/id={id}(id=${recruiter.id})}" class="btn btn-primary">Delete</a>
+                    <a th:href="@{/recruiter/profile/update/id={id}(id=${recruiter.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/recruiter/profile/delete/id={id}(id=${recruiter.id})}" class="btn btn-primary">Delete</a>
                 </div>
             </div>
         </div>
