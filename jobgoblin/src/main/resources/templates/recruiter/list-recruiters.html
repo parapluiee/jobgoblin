@@ -27,13 +27,19 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Description</th>
+                            <th>StartDate</th>
+                            <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="recruiter : ${recruiterList}">
-                            <td> <a th:href="@{/recruiter/id={id}(id=${spell.id})}" th:text=" ${recruiter.id}" > </a></td>
+                            <td> <a th:href="@{/recruiter/id={id}(id=${recruiter.id})}" th:text=" ${recruiter.id}" > </a></td>
                             <td th:text=" ${recruiter.name}"></td>
                             <td th:text=" ${recruiter.email}"></td>
+                            <td th:text=" ${recruiter.description}"></td>
+                            <td th:text=" ${recruiter.startDate}"></td>
+                            <td th:text=" ${recruiter.rating}"></td>
                         </tr>
 
                     </tbody>

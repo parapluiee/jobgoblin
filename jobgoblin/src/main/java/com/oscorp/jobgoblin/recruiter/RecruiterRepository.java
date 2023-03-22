@@ -17,14 +17,14 @@ public class RecruiterRepository {
     NamedParameterJdbcTemplate template;
 
     List<Recruiter> findAll() {
-        String query = "select id, name,email,description,startDate,rating from recruiter";
+        String query = "select id, name,email,description,start_date,rating from recruiter";
         return template.query(query,
                 (result, rowNum)
                         -> new Recruiter(result.getLong("id"),
                         result.getString("name"), result.getString(
                         "email"),result.getString(
                         "description"),result.getString(
-                        "startDate"),result.getDouble(
+                        "start_date"),result.getDouble(
                         "rating")));
     }
 
@@ -43,7 +43,7 @@ public class RecruiterRepository {
         paramMap.put("description", recruiter.getDescription());
         paramMap.put("startDate", recruiter.getStartDate());
         paramMap.put("rating", recruiter.getRating());
-        String query = "INSERT INTO recruiter(name,email,description,startDate,rating) " +
+        String query = "INSERT INTO recruiter(name,email,description,start_date,rating) " +
                 "VALUES(:name, :email, :description, :startDate, :rating)";
         return template.update(query, paramMap);
     }
@@ -63,8 +63,7 @@ public class RecruiterRepository {
         paramMap.put("description", recruiter.getDescription());
         paramMap.put("startDate", recruiter.getStartDate());
         paramMap.put("rating", recruiter.getRating());
-        String query = "update recruiter set name=:name, email=:email, description=:description," +
-                "startDate=:startDate, rating=:rating, where id=:id ";
+        String query = "update recruiter set name=name, email=email, description=description,start_date=startDate, rating=rating, where id=id ";
         template.update(query, paramMap);
     }
 }

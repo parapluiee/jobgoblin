@@ -15,7 +15,7 @@ public class RecruiterController {
     @Autowired
     private RecruiterService service;
 
-    @GetMapping("/home")
+    @GetMapping("/profile")
     public String getHomePage(Model model) {
         model.addAttribute("recruiterList", service.getAllRecruiters());
         return "recruiter/list-recruiters";
@@ -34,7 +34,7 @@ public class RecruiterController {
     }
 
     @PostMapping("/create")
-    public String createSpell(Recruiter rec) {
+    public String createRecruiter(Recruiter rec) {
         service.saveRecruiter(rec);
         return "redirect:/recruiter/profile";
     }
