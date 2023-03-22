@@ -25,29 +25,23 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Descr</th>
-                <th>ComapnyID</th>
-                <th>RecruiterID</th>
                 <th>Rating</th>
                 <th>numRatings</th>
-                <th>DatePosted</th>
-                <th>SalaryHigh</th>
-                <th>SalaryLow</th>
-                <th>quizIDw</th>
+                <th>foundingDate</th>
+                <th>startDate</th>
+                <th>webLink</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="company : ${jobList}">
+            <tr th:each="company : ${companyList}">
                 <td th:text = " ${company.id}"></td>
                 <td th:text = " ${company.name}"><</td>
                 <td th:text = " ${company.descr}"></td>
-                <td th:text = " ${company.companyID}"></td>
-                <td th:text = " ${company.recruiterID}"></td>
                 <td th:text = " ${company.rating}"></td>
                 <td th:text = " ${company.numRatings}"></td>
-                <td th:date = " ${company.datePosted}"></td>
-                <td th:text = " ${company.salaryHigh}"></td>
-                <td th:text = " ${company.salaryLow}"></td>
-                <td th:text = " ${company.quizID}"></td>
+                <td th:date = " ${company.foundingDate}"></td>
+                <td th:text = " ${company.startDate}"></td>
+                <td th:text = " ${company.webLink}"></td>
             </tr>
             </tbody>
         </table>

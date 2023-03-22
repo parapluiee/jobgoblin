@@ -19,14 +19,11 @@
       <h5 class="card-title">Job</h5>
       <p class="card-text" th:text=" 'ID: '+ ${company.id}" />
       <p class="card-text" th:text="'Descr: '+${company.descr}" />
-      <p class="card-text" th:text="'CompanyID: '+${company.companyID}" />
-      <p class="card-text" th:text="'RecruiterID: '+${company.recruiterID}" />
       <p class="card-text" th:text="'Rating: '+${company.rating}" />
       <p class="card-text" th:text=" 'NumRatings: '+ ${company.numRatings}" />
-      <p class="card-text" th:text="'SalaryHigh: '+${company.datePosted}" />
-      <p class="card-text" th:text="'DatePosted: '+${company.salaryHigh}" />
-      <p class="card-text" th:text="'SalaryLow: '+${company.salaryLow}" />
-      <p class="card-text" th:text="'QuizID: '+${company.quizID}" />
+      <p class="card-text" th:text="'SalaryHigh: '+${company.foundingDate}" />
+      <p class="card-text" th:text="'DatePosted: '+${company.startDate}" />
+      <p class="card-text" th:text="'SalaryLow: '+${company.webLink}" />
     </div>
   </div>
 </div>

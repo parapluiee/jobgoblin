@@ -58,7 +58,7 @@ public class JobRepository {
         paramMap.put("recruiterID", job.getRecruiterID());
         paramMap.put("rating", job.getRating());
         paramMap.put("numRatings", job.getNumRatings());
-        paramMap.put("datePosted", job.getDatePosted());
+        paramMap.put("datePostjobed", job.getDatePosted());
         paramMap.put("salaryHigh", job.getSalaryHigh());
         paramMap.put("salaryLow", job.getSalaryLow());
         paramMap.put("quizID", job.getQuizID());
