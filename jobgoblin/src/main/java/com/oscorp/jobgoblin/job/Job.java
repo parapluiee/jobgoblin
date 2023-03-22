@@ -9,8 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
 @Entity
 @Table(name = "job")
 @NoArgsConstructor
@@ -22,29 +20,29 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String desc;
+    private String descr;
     private long companyID;
     //must make plural
     private long recruiterID;//s
     private double rating;
     private int numRatings;
-    private Date datePosted;
+    private String datePosted;
     private int salaryHigh;
     private int salaryLow;
     private double quizID;
     Job(String name,
-        String desc,
+        String descr,
         long companyID,
         long recruiterID,
         double rating,
         int numRatings,
-        Date datePosted,
+        String datePosted,
         int salaryHigh,
         int salaryLow,
         long quizID){
 
         this.name = name;
-        this.desc = desc;
+        this.descr = descr;
         this.companyID = companyID;
         this.recruiterID = recruiterID;
         this.rating = rating;
@@ -63,8 +61,8 @@ public class Job {
         return name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescr() {
+        return descr;
     }
 
     public long getCompanyID() {
@@ -83,7 +81,7 @@ public class Job {
         return numRatings;
     }
 
-    public Date getDatePosted() {
+    public String getDatePosted() {
         return datePosted;
     }
 

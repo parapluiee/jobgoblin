@@ -24,7 +24,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Desc</th>
+                <th>Descr</th>
                 <th>ComapnyID</th>
                 <th>RecruiterID</th>
                 <th>Rating</th>
@@ -39,7 +39,7 @@
             <tr th:each="job : ${jobList}">
                 <td th:text = " ${job.id}"></td>
                 <td th:text = " ${job.name}"><</td>
-                <td th:text = " ${job.desc}"></td>
+                <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.companyID}"></td>
                 <td th:text = " ${job.recruiterID}"></td>
                 <td th:text = " ${job.rating}"></td>

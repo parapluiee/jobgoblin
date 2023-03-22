@@ -8,4 +8,17 @@ public class JobService {
     JobRepository repo;
 
     List<Job> getAllJobs() {return repo.findAll();}
+
+    void saveJob(Job job) {repo.saveJob(job);}
+
+    Object getJob(long id){
+        return repo.getJobByID(id);
+    }
+
+    void deleteJob(long id){
+        repo.deleteJobByID(id);
+    }
+    void updateJob(Job job){
+        repo.updateJob(job);
+    }
 }

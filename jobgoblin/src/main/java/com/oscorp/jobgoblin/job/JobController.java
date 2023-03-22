@@ -17,4 +17,35 @@ public class JobController {
         model.addAttribute("jobList", service.getAllJobs());
         return "job/list-jobs.html";
     }
+
+    @PostMapping("/create")
+    public String createJob(Job job){
+        service.saveJob(job);
+        return "redirect:/job/all";
+    }
+    @GetMapping("delete/id={id}")
+    public String deleteJob(@PathVariable long id, Model model) {
+        service.deleteJob(id);
+        return "redirect:/job/all";
+    }
+    @GetMapping("/id={id}")
+    public String getJob(@PathVariable long id, Model model){
+        model.addAttribute("job", service.getJob(id));
+        return "job/job-detail";
+    }
+    @GetMapping("new-job")
+    public String newJob(){
+        return "job/new-job.html";
+    }
+
+    @GetMapping("/update/id={id}")
+    public String updateJobForm(@PathVariable long id, Model model) {
+        model.addAttribute("job", service.getJob(id));
+        return "job/update-job";
+    }
+    @PostMapping("/update-job")
+    public String updateJob(Job job){
+        service.updateJob(job);
+        return "redirect:/job/all";
+    }
 }
