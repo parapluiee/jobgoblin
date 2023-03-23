@@ -20,7 +20,13 @@ public class JobRepository {
                         "rating"), result.getInt("num_Ratings"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low"), result.getLong("quizID")));
 
     }
-
+    List<Job> findByComp(long comid){
+        String query = "select id, name, descr, companyID, recruiterID, rating, num_Ratings, date_Posted, salary_High, salary_Low, quizID from job where companyid=" + comid;
+        return template.query(query,
+                (result, rowNum)
+                        -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getLong("recruiterID"), result.getDouble("" +
+                        "rating"), result.getInt("num_Ratings"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low"), result.getLong("quizID")));
+    }
     public int saveJob(Job job){
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", job.getName());
@@ -58,7 +64,7 @@ public class JobRepository {
         paramMap.put("recruiterID", job.getRecruiterID());
         paramMap.put("rating", job.getRating());
         paramMap.put("numRatings", job.getNumRatings());
-        paramMap.put("datePostjobed", job.getDatePosted());
+        paramMap.put("datePosted", job.getDatePosted());
         paramMap.put("salaryHigh", job.getSalaryHigh());
         paramMap.put("salaryLow", job.getSalaryLow());
         paramMap.put("quizID", job.getQuizID());

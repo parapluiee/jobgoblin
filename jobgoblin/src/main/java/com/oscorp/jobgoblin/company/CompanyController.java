@@ -46,6 +46,6 @@ public class CompanyController {
     @PostMapping("/update-company")
     public String updateCompany(Company company){
         service.updateCompany(company);
-        return "redirect:/company/all";
+        return "redirect:/company/id="+company.getId();
     }
 }

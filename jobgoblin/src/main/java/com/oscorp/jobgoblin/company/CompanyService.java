@@ -11,7 +11,8 @@ public class CompanyService {
 
     List<Company> getAllCompanies() {return repo.findAll();}
 
-    void saveCompany(Company company) {repo.saveCompany(company);}
+    void saveCompany(Company company) {
+        repo.saveCompany(company);}
 
     Object getCompany(long id){
         return repo.getCompanyByID(id);
