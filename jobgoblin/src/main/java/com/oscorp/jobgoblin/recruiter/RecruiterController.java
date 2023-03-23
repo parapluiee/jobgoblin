@@ -41,7 +41,7 @@ public class RecruiterController {
 
     @PostMapping("/profile/update")
     public String updateRecruiter(Recruiter rec) {
-        //service.updateRecruiter(rec);
+        service.updateRecruiter(rec);
         return "redirect:/recruiter/profile/id={id}";
     }
 
