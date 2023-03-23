@@ -25,14 +25,14 @@ public class JobSeeker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String userName;
+    private String username;
     private String email;
-    private double prevSalary;
+    private double prevsalary;
 
-    public JobSeeker(String name, String userName, String email, double prevSalary) {
+    public JobSeeker(String name, String username, String email, double prevsalary) {
         this.name = name;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
-        this.prevSalary = prevSalary;
+        this.prevsalary = prevsalary;
     }
 }

@@ -15,50 +15,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/jobseeker")
-
 public class JobSeekerController {
-     @Autowired
-    JobSeekerService bookService;
+    
+    @Autowired
+    JobSeekerService jseekerService;
 
     @GetMapping("/all")
-    public String getAllBooks(Model model) {
-        model.addAttribute("bookList", bookService.getAllJobSeekers());
-        return "book/list-books";
+    public String getAllJobSeekers(Model model) {
+        model.addAttribute("jobseekerList", jseekerService.getAllJobSeekers());
+        return "jobseeker/list-jobseekers";
     }
 
-    @GetMapping("/id={bookId}")
-    public String getBook(@PathVariable long jseekerId, Model model) {
-        model.addAttribute("book", bookService.getJobSeeker(jseekerId));
-        return "book/book-detail";
+    @GetMapping("/id={jseekerId}")
+    public String getJobSeeker(@PathVariable long jobseekerId, Model model) {
+        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        return "jobseeker/jobseeker-detail";
     }
 
-    @GetMapping("/delete/id={bookId}")
-    public String deleteBook(@PathVariable long jseekerId, Model model) {
-        bookService.deleteJobSeeker(jseekerId);
-        return "redirect:/book/all";
+    @GetMapping("/delete/id={jobseekerId}")
+    public String deleteJobSeeker(@PathVariable long jobseekerId, Model model) {
+        jseekerService.deleteJobSeeker(jobseekerId);
+        return "redirect:/jobseeker/all";
     }
 
     @PostMapping("/create")
-    public String createBook(JobSeeker book) {
+    public String createJobSeeker(JobSeeker jobseeker) {
 
-        bookService.saveJobSeeker(book);
-        return "redirect:/book/all";
+        jseekerService.saveJobSeeker(jobseeker);
+        return "redirect:/jobseeker/all";
     }
 
     @PostMapping("/update")
-    public String updateBook(JobSeeker jseeker) {
-        bookService.saveJobSeeker(jseeker);
-        return "redirect:/book/all";
+    public String updateJobSeeker(JobSeeker jobseeker) {
+        jseekerService.saveJobSeeker(jobseeker);
+        return "redirect:/jobseeker/all";
     }
 
-    @GetMapping("/new-book")
+    @GetMapping("/new-jobseeker")
     public String newJobSeekerForm(Model model) {
-        return "book/new-book";
+        return "jobseeker/new-jobseeker";
     }
 
-    @GetMapping("/update/id={bookId}")
-    public String updateJobSeekerForm(@PathVariable long jseekerId, Model model) {
-        model.addAttribute("book", bookService.getJobSeeker(jseekerId));
-        return "book/update-book";
+    @GetMapping("/update/id={jseekerId}")
+    public String updateJobSeekerForm(@PathVariable long jobseekerId, Model model) {
+        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        return "jobseeker/update-jobseeker";
     }
 }

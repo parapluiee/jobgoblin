@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JobSeekerService {
+    
     @Autowired
     private JobSeekerRepository repo;
 
@@ -18,15 +19,15 @@ public class JobSeekerService {
         return repo.findAll();
     }
 
-    public JobSeeker getJobSeeker(long jseekerId) {
-        return repo.getReferenceById(jseekerId);
+    public JobSeeker getJobSeeker(long jobseekerId) {
+        return repo.getReferenceById(jobseekerId);
     }
 
-    public void deleteJobSeeker(long jseekerId) {
-        repo.deleteById(jseekerId);
+    public void deleteJobSeeker(long jobseekerId) {
+        repo.deleteById(jobseekerId);
     }
 
-    void saveJobSeeker(JobSeeker jseeker) {
-        repo.save(jseeker);
+    void saveJobSeeker(JobSeeker jobseeker) {
+        repo.save(jobseeker);
     }
 }
