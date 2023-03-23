@@ -8,7 +8,7 @@ public class JobService {
     JobRepository repo;
 
     List<Job> getAllJobs() {return repo.findAll();}
-
+    List<Job> getJobsByComp(long comid){ return repo.findByComp(comid);}
     void saveJob(Job job) {repo.saveJob(job);}
 
     Object getJob(long id){
@@ -21,4 +21,5 @@ public class JobService {
     void updateJob(Job job){
         repo.updateJob(job);
     }
+
 }

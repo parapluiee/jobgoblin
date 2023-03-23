@@ -14,16 +14,20 @@
 <body>
 <div class="container">
   <h1 style="text-align:center;">Book Info</h1>
+  <a th:href="@{/job/all/comid={id}(id=${company.id})}">View Created Jobs </a>
+  <a th:href="@{/job/new-job/comid={id}(id=${company.id})}">New Job </a>
+  <a th:href="@{/company/update/id={id}(id=${company.id})}">Edit Company </a>
+
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Job</h5>
+      <h5 class="card-title" th:text="${company.name}"></h5>
       <p class="card-text" th:text=" 'ID: '+ ${company.id}" />
       <p class="card-text" th:text="'Descr: '+${company.descr}" />
       <p class="card-text" th:text="'Rating: '+${company.rating}" />
       <p class="card-text" th:text=" 'NumRatings: '+ ${company.numRatings}" />
-      <p class="card-text" th:text="'SalaryHigh: '+${company.foundingDate}" />
+      <p class="card-text" th:text="'FoundingDate: '+${company.foundingDate}" />
       <p class="card-text" th:text="'DatePosted: '+${company.startDate}" />
-      <p class="card-text" th:text="'SalaryLow: '+${company.webLink}" />
+      <p class="card-text" th:text="'Weblink: '+${company.webLink}" />
     </div>
   </div>
 </div>

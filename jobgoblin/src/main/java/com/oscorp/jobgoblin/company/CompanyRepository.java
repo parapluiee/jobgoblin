@@ -31,10 +31,11 @@ public class CompanyRepository {
         paramMap.put("rating", company.getRating());
         paramMap.put("numRatings", company.getNumRatings());
         paramMap.put("email", company.getEmail());
+        System.out.println(company.getFoundingDate());
         paramMap.put("foundingDate", company.getFoundingDate());
-        paramMap.put("startdate", company.getStartDate());
+        paramMap.put("startDate", company.getStartDate());
         paramMap.put("weblink", company.getWebLink());
-        String query = "INSERT INTO company(name, descr, rating, num_ratings, email, founding_Date, start_date, web_link) VALUES(name, :descr, :rating, :numRatings, :email, :foundingDate, :startdate, :weblink)";
+        String query = "INSERT INTO company(name, descr, rating, num_ratings, email, founding_Date, start_date, web_link) VALUES(:name, :descr, :rating, :numRatings, :email, :foundingDate, :startDate, :weblink)";
         return template.update(query, paramMap);
     }
 
@@ -59,10 +60,10 @@ public class CompanyRepository {
         paramMap.put("numRatings", company.getNumRatings());
         paramMap.put("email", company.getEmail());
         paramMap.put("foundingDate", company.getFoundingDate());
-        paramMap.put("startdate", company.getStartDate());
+        paramMap.put("startDate", company.getStartDate());
         paramMap.put("weblink", company.getWebLink());
-        String query = "update job set name=:name, descr=:descr, rating=:rating, " +
-                "num_Ratings=:numRatings, email:=email, foundingDate:=foundingDate, startdate:=startdate, weblink:=weblink where id=:id";
+        String query = "update company set name=:name, descr=:descr, rating=:rating, " +
+                "num_Ratings=:numRatings, email=:email, founding_Date=:foundingDate, start_date=:startDate, web_link=:weblink where id=:id";
         template.update(query, paramMap);
     }
 }

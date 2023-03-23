@@ -15,7 +15,7 @@
 <body>
 <div class="container">
 
-    <h1 style="text-align:center;">Job List</h1>
+    <h1 style="text-align:center;">Company List</h1>
 
     <div style="align-content: center;">
 
@@ -27,19 +27,17 @@
                 <th>Descr</th>
                 <th>Rating</th>
                 <th>numRatings</th>
-                <th>foundingDate</th>
                 <th>startDate</th>
                 <th>webLink</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="company : ${companyList}">
-                <td th:text = " ${company.id}"></td>
+                <td> <a th:href="@{/company/id={id}(id=${company.id})}" th:text=" ${company.id}" > </a></td>
                 <td th:text = " ${company.name}"><</td>
                 <td th:text = " ${company.descr}"></td>
                 <td th:text = " ${company.rating}"></td>
                 <td th:text = " ${company.numRatings}"></td>
-                <td th:date = " ${company.foundingDate}"></td>
                 <td th:text = " ${company.startDate}"></td>
                 <td th:text = " ${company.webLink}"></td>
             </tr>

@@ -21,7 +21,12 @@ public class JobController {
     @PostMapping("/create")
     public String createJob(Job job){
         service.saveJob(job);
-        return "redirect:/job/all";
+        return "redirect:/company/id="+job.getCompanyID();
+    }
+    @GetMapping("all/comid={comid}")
+    public String getJobByComp(@PathVariable long comid, Model model){
+        model.addAttribute("jobList", service.getJobsByComp(comid));
+        return "job/list-jobs.html";
     }
     @GetMapping("delete/id={id}")
     public String deleteJob(@PathVariable long id, Model model) {
@@ -33,8 +38,9 @@ public class JobController {
         model.addAttribute("job", service.getJob(id));
         return "job/job-detail";
     }
-    @GetMapping("new-job")
-    public String newJob(){
+    @GetMapping("new-job/comid={comid}")
+    public String newJob(@PathVariable long comid, Model model){
+        model.addAttribute("comid", comid);
         return "job/new-job.html";
     }
 
@@ -46,6 +52,6 @@ public class JobController {
     @PostMapping("/update-job")
     public String updateJob(Job job){
         service.updateJob(job);
-        return "redirect:/job/all";
+        return "redirect:/job/all/comid="+job.getCompanyID();
     }
 }
