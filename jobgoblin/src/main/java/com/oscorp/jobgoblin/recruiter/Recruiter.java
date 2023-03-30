@@ -17,10 +17,10 @@ public class Recruiter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String email;
-    private String startDate;
-    private String description;
     private String name;
+    private String email;
+    private String description;
+    private String startDate;
     private double rating;
 
 
