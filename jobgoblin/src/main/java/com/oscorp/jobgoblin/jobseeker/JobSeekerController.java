@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/jobseeker")
+@RequestMapping("jobseeker")
 public class JobSeekerController {
     
     @Autowired
     JobSeekerService jseekerService;
 
     @GetMapping("/all")
-    public String getAllJobSeekers(Model model) {
-        model.addAttribute("jobseekerList", jseekerService.getAllJobSeekers());
+    public String getAllJobSeekers() {
+
         return "jobseeker/list-jobseekers";
     }
 
     @GetMapping("/id={jseekerId}")
     public String getJobSeeker(@PathVariable long jobseekerId, Model model) {
-        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
-        return "jobseeker/jobseeker-detail";
+        model.addAttribute("templates/jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        return "templates/jobseeker/jobseeker-detail";
     }
 
     @GetMapping("/delete/id={jobseekerId}")
@@ -53,12 +53,12 @@ public class JobSeekerController {
 
     @GetMapping("/new-jobseeker")
     public String newJobSeekerForm(Model model) {
-        return "jobseeker/new-jobseeker";
+        return "templates/jobseeker/new-jobseeker";
     }
 
     @GetMapping("/update/id={jseekerId}")
     public String updateJobSeekerForm(@PathVariable long jobseekerId, Model model) {
-        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
-        return "jobseeker/update-jobseeker";
+        model.addAttribute("templates/jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        return "templates/jobseeker/update-jobseeker";
     }
 }
