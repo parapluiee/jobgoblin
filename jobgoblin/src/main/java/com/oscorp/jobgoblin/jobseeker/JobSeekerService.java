@@ -18,16 +18,17 @@ public class JobSeekerService {
     public List<JobSeeker> getAllJobSeekers() {
         return repo.findAll();
     }
-
-    public JobSeeker getJobSeeker(long jobseekerId) {
-        return repo.getReferenceById(jobseekerId);
+    public Object getJobSeeker(long jobseekerId){
+        return repo.getJobSeekerById(jobseekerId);
     }
-
     public void deleteJobSeeker(long jobseekerId) {
-        repo.deleteById(jobseekerId);
+        repo.deleteJobSeekerById(jobseekerId);
     }
 
-    void saveJobSeeker(JobSeeker jobseeker) {
-        repo.save(jobseeker);
+    public void saveJobSeeker(JobSeeker jobseeker) {
+        repo.saveJobSeeker(jobseeker);
+    }
+    public void updateJobSeeker(JobSeeker jobseeker){
+        repo.updateJobSeeker(jobseeker);
     }
 }
