@@ -27,12 +27,12 @@ public class JobSeeker {
     private String name;
     private String username;
     private String email;
-    private double prevsalary;
+    private double prevSalary;
 
     public JobSeeker(String name, String username, String email, double prevsalary) {
         this.name = name;
         this.username = username;
         this.email = email;
-        this.prevsalary = prevsalary;
+        this.prevSalary = prevsalary;
     }
 }
