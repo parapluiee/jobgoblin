@@ -1,4 +1,5 @@
 package com.oscorp.jobgoblin.company;
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,5 +48,11 @@ public class CompanyController {
     public String updateCompany(Company company){
         service.updateCompany(company);
         return "redirect:/company/id="+company.getId();
+    }
+
+    @PostMapping("/comrec")
+    public String recruitRecruiter(Recruiter_Company reccom){
+        service.recruitToCompany(reccom);
+        return "redirect:/rec_com/all/comid="+reccom.getComid();
     }
 }

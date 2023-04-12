@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.recruiter;
 
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,4 +56,8 @@ public class RecruiterController {
         model.addAttribute("recruiter", service.getRecruiter(id));
         return "recruiter/update-recruiter";
     }
+
+
+
+     
 }

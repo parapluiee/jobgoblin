@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.company;
 
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +25,9 @@ public class CompanyService {
     void updateCompany(Company company){
         repo.updateCompany(company);
     }
+
+    void recruitToCompany(Recruiter_Company reccom) {
+        repo.recruitTo(reccom);
+    }
+
 }
