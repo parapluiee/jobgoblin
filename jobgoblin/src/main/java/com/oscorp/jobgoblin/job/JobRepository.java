@@ -20,7 +20,7 @@ public class JobRepository {
 
     }
     List<Job> findByComp(long comid){
-        String query = "select id, name, descr, companyIDdate_Posted, salary_High, salary_Low, from job where companyid=" + comid;
+        String query = "select id, name, descr, companyID, date_Posted, salary_High, salary_Low from job where companyid=" + comid;
         return template.query(query,
                 (result, rowNum)
                         -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low")));
