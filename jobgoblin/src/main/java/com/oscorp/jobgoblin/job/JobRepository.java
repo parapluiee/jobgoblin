@@ -16,30 +16,24 @@ public class JobRepository {
         String query = "select id, name, descr, companyID, recruiterID, rating, num_Ratings, date_Posted, salary_High, salary_Low, quizID from job";
         return template.query(query,
                    (result, rowNum)
-                -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getLong("recruiterID"), result.getDouble("" +
-                        "rating"), result.getInt("num_Ratings"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low"), result.getLong("quizID")));
+                -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low")));
 
     }
     List<Job> findByComp(long comid){
         String query = "select id, name, descr, companyID, recruiterID, rating, num_Ratings, date_Posted, salary_High, salary_Low, quizID from job where companyid=" + comid;
         return template.query(query,
                 (result, rowNum)
-                        -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getLong("recruiterID"), result.getDouble("" +
-                        "rating"), result.getInt("num_Ratings"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low"), result.getLong("quizID")));
+                        -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low")));
     }
     public int saveJob(Job job){
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", job.getName());
         paramMap.put("descr", job.getDescr());
         paramMap.put("companyID", job.getCompanyID());
-        paramMap.put("recruiterID", job.getRecruiterID());
-        paramMap.put("rating", job.getRating());
-        paramMap.put("numRatings", job.getNumRatings());
         paramMap.put("datePosted", job.getDatePosted());
         paramMap.put("salaryHigh", job.getSalaryHigh());
         paramMap.put("salaryLow", job.getSalaryLow());
-        paramMap.put("quizID", job.getQuizID());
-        String query = "INSERT INTO job(name, descr, companyID, recruiterID, rating, num_Ratings, date_Posted, salary_High, salary_Low, quizID) VALUES(:name, :descr, :companyID, :recruiterID, :rating, :numRatings, :datePosted, :salaryHigh, :salaryLow, :quizID)";
+        String query = "INSERT INTO job(name, descr, companyID, date_Posted, salary_High, salary_Low) VALUES(:name, :descr, :companyID, :datePosted, :salaryHigh, :salaryLow)";
         return template.update(query, paramMap);
     }
 
@@ -61,15 +55,11 @@ public class JobRepository {
         paramMap.put("name", job.getName());
         paramMap.put("descr", job.getDescr());
         paramMap.put("companyID", job.getCompanyID());
-        paramMap.put("recruiterID", job.getRecruiterID());
-        paramMap.put("rating", job.getRating());
-        paramMap.put("numRatings", job.getNumRatings());
         paramMap.put("datePosted", job.getDatePosted());
         paramMap.put("salaryHigh", job.getSalaryHigh());
         paramMap.put("salaryLow", job.getSalaryLow());
-        paramMap.put("quizID", job.getQuizID());
-        String query = "update job set name=:name, descr=:descr, companyID=:companyID, recruiterID=:recruiterID, rating=:rating, " +
-                "num_Ratings=:numRatings, date_Posted=:datePosted, salary_High=:salaryHigh, salary_Low=:salaryLow, quizID=:quizID where id=:id";
+        String query = "update job set name=:name, descr=:descr, companyID=:companyID, " +
+                "date_Posted=:datePosted, salary_High=:salaryHigh, salary_Low=:salaryLow where id=:id";
         template.update(query, paramMap);
     }
 }
