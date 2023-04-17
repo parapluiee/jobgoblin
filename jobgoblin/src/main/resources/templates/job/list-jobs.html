@@ -24,13 +24,9 @@
                 <th>Name</th>
                 <th>Descr</th>
                 <th>CompanyID</th>
-                <th>RecruiterID</th>
-                <th>Rating</th>
-                <th>numRatings</th>
                 <th>DatePosted</th>
                 <th>SalaryHigh</th>
                 <th>SalaryLow</th>
-                <th>quizID</th>
             </tr>
             </thead>
             <tbody>
@@ -39,13 +35,9 @@
                 <td th:text = " ${job.name}"><</td>
                 <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.companyID}"></td>
-                <td th:text = " ${job.recruiterID}"></td>
-                <td th:text = " ${job.rating}"></td>
-                <td th:text = " ${job.numRatings}"></td>
                 <td th:date = " ${job.datePosted}"></td>
                 <td th:text = " ${job.salaryHigh}"></td>
                 <td th:text = " ${job.salaryLow}"></td>
-                <td th:text = " ${job.quizID}"></td>
             </tr>
             </tbody>
         </table>
