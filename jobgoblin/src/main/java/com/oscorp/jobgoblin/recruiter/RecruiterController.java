@@ -31,13 +31,13 @@ public class RecruiterController {
     @GetMapping("/profile/delete/id={id}")
     public String deleteRecruiter(@PathVariable long id, Model model) {
         service.deleteRecruiter(id);
-        return "redirect:/recruiter/profile/id={id}";
+        return "redirect:/recruiter/all";
     }
 
     @PostMapping("/create")
     public String createRecruiter(Recruiter rec) {
         service.saveRecruiter(rec);
-        return "redirect:/recruiter/profile/id={rec.id}";
+        return "redirect:/recruiter/all";
     }
 
     @PostMapping("/profile/update")
