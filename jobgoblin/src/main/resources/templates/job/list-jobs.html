@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
@@ -16,7 +15,9 @@
 
 <div class="container">
 
-    <h1 style="text-align:center;">Jobs</h1>
+
+    <h1 style="text-align:center;">Assigned Jobs</h1>
+    <a th:href="@{/recruiter/profile/id={id}(id=${recruiter.id})}" class="btn btn-primary">Back</a>
 
     <div style="align-content: center;">
 
@@ -31,7 +32,7 @@
             </thead>
             <tbody>
             <tr th:each="job : ${jobList}">
-                <td th:text = " ${job.name}"><</td>
+                <td> <a th:href="@{/jobseeker/all/comid=1/recid={id}(id=${recruiter.id})}" class="btn btn-primary" th:text = " ${job.name}" >  </a></td>
                 <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.datePosted}"></td>
                 <td th:text = "${job.salaryLow} + '-' + ${job.salaryHigh}"></td>

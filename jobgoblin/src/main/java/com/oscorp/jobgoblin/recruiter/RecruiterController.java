@@ -25,6 +25,7 @@ public class RecruiterController {
     @GetMapping("/profile/id={id}")
     public String getRecruiter(@PathVariable long id, Model model) {
         model.addAttribute("recruiter", service.getRecruiter(id));
+        model.addAttribute("companies", service.getRecruiterCompaneis(id));
         return "recruiter/recruiter-detail";
     }
 
