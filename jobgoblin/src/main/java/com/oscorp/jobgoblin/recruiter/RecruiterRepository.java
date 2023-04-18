@@ -1,5 +1,7 @@
 package com.oscorp.jobgoblin.recruiter;
 
+import com.oscorp.jobgoblin.company.Company;
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -53,6 +55,18 @@ public class RecruiterRepository {
                 "id", id);
         String query = "delete from recruiter where id=:id";
         template.update(query, namedParameters);
+    }
+    List<Recruiter_Company> getByRec(long recid) {
+        String query = "select recid, comid, rel from recruiter_company where recid = " + recid;
+        return template.query(query,
+                (result, rowNum)
+                        -> new Recruiter_Company(result.getLong("recid"),
+                        result.getLong("comid"), result.getInt("rel")));
+    }
+    public Company getCompanyByID(long id) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+        String query = "select * from company where id=:id";
+        return template.queryForObject(query, namedParameters, BeanPropertyRowMapper.newInstance(Company.class));
     }
 
     void updateRecruiter(Recruiter recruiter) {

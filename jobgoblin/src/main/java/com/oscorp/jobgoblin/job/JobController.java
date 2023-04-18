@@ -23,11 +23,18 @@ public class JobController {
         service.saveJob(job);
         return "redirect:/company/id="+job.getCompanyID();
     }
-    @GetMapping("all/comid={comid}")
+    @GetMapping("all/compid={comid}")
     public String getJobByComp(@PathVariable long comid, Model model){
         model.addAttribute("jobList", service.getJobsByComp(comid));
         return "job/list-jobs.html";
     }
+    @GetMapping("all/comid={comid}/recid={recid}")
+    public String getCompJobsFromRec(@PathVariable long comid, @PathVariable long recid,Model model){
+        model.addAttribute("jobList", service.getJobsByComp(comid));
+        model.addAttribute("recruiter", service.getRecById(recid));
+        return "job/list-jobs.html";
+    }
+
     @GetMapping("delete/id={id}")
     public String deleteJob(@PathVariable long id, Model model) {
         service.deleteJob(id);
