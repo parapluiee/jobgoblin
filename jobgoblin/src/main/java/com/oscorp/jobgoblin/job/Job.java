@@ -22,14 +22,9 @@ public class Job {
     private String name;
     private String descr;
     private long companyID;
-    //must make plural
-    private long recruiterID;//s
-    private double rating;
-    private int numRatings;
     private String datePosted;
     private int salaryHigh;
     private int salaryLow;
-    private double quizID;
     Job(String name,
         String descr,
         long companyID,
@@ -44,13 +39,9 @@ public class Job {
         this.name = name;
         this.descr = descr;
         this.companyID = companyID;
-        this.recruiterID = recruiterID;
-        this.rating = rating;
-        this.numRatings = numRatings;
         this.datePosted = datePosted;
         this.salaryHigh = salaryHigh;
         this.salaryLow = salaryLow;
-        this.quizID = quizID;
     }
 
     public long getId() {
@@ -69,18 +60,6 @@ public class Job {
         return companyID;
     }
 
-    public long getRecruiterID() {
-        return recruiterID;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public int getNumRatings() {
-        return numRatings;
-    }
-
     public String getDatePosted() {
         return datePosted;
     }
@@ -93,7 +72,4 @@ public class Job {
         return salaryLow;
     }
 
-    public double getQuizID() {
-        return quizID;
-    }
 }

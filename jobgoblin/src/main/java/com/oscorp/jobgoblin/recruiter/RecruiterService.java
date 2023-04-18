@@ -8,10 +8,10 @@ import java.util.List;
 public class RecruiterService {
     @Autowired
     RecruiterRepository repo;
-    List<Recruiter> getAllRecruiters() {
+    public List<Recruiter> getAllRecruiters() {
         return repo.findAll();
     }
-    Object getRecruiter(long id) {
+    public Recruiter getRecruiter(long id) {
         return repo.getRecruiterById(   id);
     }
 

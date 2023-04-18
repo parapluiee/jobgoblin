@@ -5,17 +5,18 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <title>Update Book</title>
+  <title>Update Job</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 </head>
 <body background="#f2f0e4">
 <div class="container my-5">
-  <h3> Enter Book Info</h3>
+  <h3> Enter Job Info</h3>
   <div class="card">
     <div class="card-body">
       <div class="col-md-10">
+        <a th:href="@{/job/delete/id={id} (id=${job.id})}">Delete </a>
         <form action="#" th:action="@{/job/update-job}" th:object="${job}"
               method="post">
 
@@ -37,18 +38,6 @@
               <td><input type="text" th:field="*{companyID}" value="${job.companyID}"/></td>
             </tr>
             <tr>
-              <td>Recruiter</td>
-              <td><input type="text" th:field="*{recruiterID}" value="${job.recruiterID}"/></td>
-            </tr>
-            <tr>
-              <td>Rating</td>
-              <td><input type="text" th:field="*{rating}" value="${job.rating}"/></td>
-            </tr>
-            <tr>
-              <td>NumRatings</td>
-              <td><input type="text" th:field="*{numRatings}" value="${job.numRatings}"/></td>
-            </tr>
-            <tr>
               <td>DatePosted</td>
               <td><input type="text" th:field="*{datePosted}" value="${job.datePosted}"/></td>
             </tr>
@@ -59,10 +48,6 @@
             <tr>
               <td>SalaryLow</td>
               <td><input type="text" th:field="*{salaryLow}" value="${job.salaryLow}"/></td>
-            </tr>
-            <tr>
-              <td>QuizId</td>
-              <td><input type="text" th:field="*{quizID}" value="${job.quizID}"/></td>
             </tr>
 
             <tr>

@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.company;
 
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -64,6 +65,15 @@ public class CompanyRepository {
         paramMap.put("weblink", company.getWebLink());
         String query = "update company set name=:name, descr=:descr, rating=:rating, " +
                 "num_Ratings=:numRatings, email=:email, founding_Date=:foundingDate, start_date=:startDate, web_link=:weblink where id=:id";
+        template.update(query, paramMap);
+    }
+
+    void recruitTo(Recruiter_Company reccom) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("comid", reccom.getComid());
+        paramMap.put("recid", reccom.getRecid());
+        paramMap.put("rel", reccom.getRel());
+        String query = "INSERT INTO recruiter_company(comid, recid, rel) values(:comid, :recid, :rel)";
         template.update(query, paramMap);
     }
 }

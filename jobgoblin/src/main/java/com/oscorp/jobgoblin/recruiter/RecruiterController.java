@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.recruiter;
 
+import com.oscorp.jobgoblin.misc.Recruiter_Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,13 +31,13 @@ public class RecruiterController {
     @GetMapping("/profile/delete/id={id}")
     public String deleteRecruiter(@PathVariable long id, Model model) {
         service.deleteRecruiter(id);
-        return "redirect:/recruiter/profile/id={id}";
+        return "redirect:/recruiter/all";
     }
 
     @PostMapping("/create")
     public String createRecruiter(Recruiter rec) {
         service.saveRecruiter(rec);
-        return "redirect:/recruiter/profile/id={rec.id}";
+        return "redirect:/recruiter/all";
     }
 
     @PostMapping("/profile/update")
@@ -55,4 +56,8 @@ public class RecruiterController {
         model.addAttribute("recruiter", service.getRecruiter(id));
         return "recruiter/update-recruiter";
     }
+
+
+
+     
 }
