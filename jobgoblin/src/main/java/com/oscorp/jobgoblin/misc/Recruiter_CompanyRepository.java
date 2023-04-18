@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.misc;
 
+import com.oscorp.jobgoblin.company.Company;
 import com.oscorp.jobgoblin.recruiter.Recruiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -35,13 +36,14 @@ public class Recruiter_CompanyRepository {
     int getRel(long comid, long recid){
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
                 "recid", recid).addValue("comid", comid);
-        String query = "select * from recruiter where recid=:recid and comid=:comid";
+        System.out.println(recid + " " + comid);
+        String query = "select rel from recruiter_company where recid=:recid and comid=:comid";
         return template.queryForObject(query, namedParameters,
                 BeanPropertyRowMapper.newInstance(Integer.class)).intValue();
     }
 
     List<Recruiter> getRecwoRel(long comid) {
-        String query = "select recid, comid, rel from recruiter where recid not in " +
+        String query = "select * from recruiter where id not in " +
                 "(select recid from recruiter_company where comid = " + comid + ")";
         return template.query(query,
                 (result, rowNum)
@@ -51,5 +53,23 @@ public class Recruiter_CompanyRepository {
                         "description"),result.getString(
                         "start_date"),result.getDouble(
                         "rating")));
+    }
+
+    public int savRecCom(Recruiter_Company reccomd){
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("comid", reccomd.getComid());
+        paramMap.put("recid", reccomd.getRecid());
+        paramMap.put("rel", reccomd.getRel());
+        String query = "INSERT INTO recruiter_company(recid, comid, rel) VALUES(:recid, :comid, :rel)";
+        return template.update(query, paramMap);
+    }
+
+    void updatereccom(Recruiter_Company rec_com){
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("recid", rec_com.getRecid());
+        paramMap.put("comid", rec_com.getComid());
+        paramMap.put("rel", rec_com.getRel());
+        String query = "update recruiter_company set recid=:recid, comid=:comid, rel=:rel where recid:recid";
+        template.update(query, paramMap);
     }
 }
