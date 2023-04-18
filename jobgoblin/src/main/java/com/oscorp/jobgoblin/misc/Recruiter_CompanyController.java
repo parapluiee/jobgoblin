@@ -29,20 +29,21 @@ public class Recruiter_CompanyController {
         model.addAttribute("comid", Long.parseLong(pathVarsMap.get("comid")));
         String relationship = "none";
         switch (service.getRel(Long.parseLong(pathVarsMap.get("comid")), Long.parseLong(pathVarsMap.get("recid")))) {
-            case 0:{relationship = "Awaiting Response";
+            case 0:{relationship = "Awaiting Response"; break;
             }
-            case 1:{relationship = "Hired";}
-            case 2:{relationship = "Rejected";}
+            case 1:{relationship = "Hired"; break;}
+            case 2:{relationship = "Rejected"; break;}
             }
         model.addAttribute("relationship", relationship);
         return "rec_com/recruiter-detail";
     }
     @GetMapping("/recruiters/comid={comid}")
     public String recruitRecruiter(@PathVariable long comid, Model model){
-        ArrayList<Recruiter_Company> ids = new ArrayList(service.getByCom(comid));
+        ArrayList<Recruiter_Company> reccoms = new ArrayList(service.getByCom(comid));
         ArrayList<Recruiter> recruiters = new ArrayList<>();
-        for (int i = 0; i < ids.size(); i++){
-            recruiters.add(recService.getRecruiter(ids.get(i).getRecid()));
+        System.out.println(reccoms.size());
+        for (int i = 0; i < reccoms.size(); i++){
+            recruiters.add(recService.getRecruiter(reccoms.get(i).getRecid()));
         }
         model.addAttribute("recruiterList", recruiters);
 

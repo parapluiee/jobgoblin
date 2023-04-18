@@ -29,8 +29,8 @@ public class Recruiter_CompanyRepository {
         String query = "select recid, comid, rel from recruiter_company where comid = " + comid;
         return template.query(query,
                 (result, rowNum)
-                        -> new Recruiter_Company(result.getLong("recid"),
-                        result.getLong("comid"), result.getInt("rel")));
+                        -> new Recruiter_Company(result.getLong("comid"),
+                        result.getLong("recid"), result.getInt("rel")));
     }
 
     int getRel(long comid, long recid){
@@ -39,7 +39,7 @@ public class Recruiter_CompanyRepository {
         System.out.println(recid + " " + comid);
         String query = "select rel from recruiter_company where recid=:recid and comid=:comid";
         return template.queryForObject(query, namedParameters,
-                BeanPropertyRowMapper.newInstance(Integer.class)).intValue();
+                Integer.class);
     }
 
     List<Recruiter> getRecwoRel(long comid) {
