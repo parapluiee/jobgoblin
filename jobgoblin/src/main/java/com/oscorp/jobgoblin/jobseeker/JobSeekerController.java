@@ -22,7 +22,6 @@ public class JobSeekerController {
     @GetMapping("/all")
     public String getAllJobSeekers(Model model) {
         model.addAttribute("jobseekerList", service.getAllJobSeekers());
-
         return "jobseeker/list-jobseekers";
     }
 
@@ -41,7 +40,6 @@ public class JobSeekerController {
 
     @PostMapping("/create")
     public String createJobSeeker(JobSeeker jobseeker) {
-
         service.saveJobSeeker(jobseeker);
         return "redirect:/jobseeker/all";
     }
