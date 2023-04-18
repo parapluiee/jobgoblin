@@ -24,6 +24,12 @@ public class JobSeekerController {
         model.addAttribute("jobseekerList", service.getAllJobSeekers());
         return "jobseeker/list-jobseekers";
     }
+    @GetMapping("all/comid={comid}/recid={recid}")
+    public String getAllJobSeekersByRec(@PathVariable long comid, @PathVariable long recid,Model model) {
+        model.addAttribute("jobseekerList", service.getAllJobSeekers());
+        model.addAttribute("recruiter", service.getRecById(recid));
+        return "jobseeker/list-jobseekers";
+    }
 
     @GetMapping("/id={jobseekerId}")
     public String getJobSeeker(@PathVariable long jobseekerId, Model model) {

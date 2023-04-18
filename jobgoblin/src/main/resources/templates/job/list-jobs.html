@@ -23,7 +23,6 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Job title</th>
                 <th>Description</th>
                 <th>Date Posted</th>
@@ -32,8 +31,7 @@
             </thead>
             <tbody>
             <tr th:each="job : ${jobList}">
-                <td> <a th:href="@{/job/update/id={id}(id=${job.id})}" th:text=" ${job.id}" > </a></td>
-                <td th:text = " ${job.name}"><</td>
+                <td> <a th:href="@{/jobseeker/all/comid=1/recid={id}(id=${recruiter.id})}" class="btn btn-primary" th:text = " ${job.name}" >  </a></td>
                 <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.datePosted}"></td>
                 <td th:text = "${job.salaryLow} /- ${job.salaryHigh}"></td>
