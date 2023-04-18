@@ -13,7 +13,7 @@ public class JobRepository {
     NamedParameterJdbcTemplate template;
     //for testing
     List<Job> findAll(){
-        String query = "select id, name, descr, companyIDdate_Posted, salary_High, salary_Low from job";
+        String query = "select id, name, descr, companyID, date_Posted, salary_High, salary_Low from job";
         return template.query(query,
                    (result, rowNum)
                 -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low")));
