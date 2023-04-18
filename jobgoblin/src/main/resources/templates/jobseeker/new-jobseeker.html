@@ -22,26 +22,38 @@
             <h1 style="color: #007acc; text-align:center;">Enter Job Seeker Info</h1>
 
             <div style="background-color: #3e3e42;color: #007acc; align-content: center;">
-                <form action="/book/create" method="post">
+                <form action="/jobseeker/create" method="post">
                     <!-- <div class="form-group">
-                         <label for="jseekerId">Product ID:</label>
-                         <input type="text" class="form-control" name="jseekerId" id="jseekerId" placeholder="Enter ID"></input>
+                         <label for="id">JobSeeker ID:</label>
+                         <input type="text" class="form-control" name="id" id="id" placeholder="Enter ID"></input>
                      </div>-->
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" class="form-control" name="name" id="jseekerId" placeholder="Enter name"></input>
+                        <input type="text" class="form-control" name="name" id="jobseekerId" placeholder="Enter name"></input>
                     </div>
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" class="form-control" name="username" id="jseekerId" placeholder="Enter username"></input>
+                        <input type="text" class="form-control" name="username" id="jobseekerId" placeholder="Enter username"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Password:</label>
+                        <input type="text" class="form-control" name="password" id="jobseekerId" placeholder="Enter password"></input>
                     </div>
                     <div  class="form-group">
                         <label for="email">Email:</label>
-                        <input type="text" class="form-control" name="email" id="jseekerId" placeholder="Enter email"></input>
+                        <input type="text" class="form-control" name="email" id="jobseekerId" placeholder="Enter email"></input>
+                    </div>
+                    <div  class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="text" class="form-control" name="dob" id="jobseekerId" placeholder="MM/DD/YY"></input>
+                    </div>
+                    <div  class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" name="description" id="jobseekerId" placeholder="Enter description"></input>
                     </div>
                     <div  class="form-group">
                         <label for="prevSalary">Previous Salary:</label>
-                        <input type="text" class="form-control" name="price" id="jseekerId" placeholder="Enter previous salary"></input>
+                        <input type="text" class="form-control" name="prevSalary" id="jobseekerId" placeholder="Enter previous salary"></input>
                     </div>
                     <button style="background-color:#007acc;color: #3e3e42"type="submit" class="btn btn-primary">Submit</button>
                 </form>
