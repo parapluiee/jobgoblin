@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Map;
+
 @Controller
 @RequestMapping("/job")
 public class JobController {
@@ -33,6 +36,11 @@ public class JobController {
         service.deleteJob(id);
         return "redirect:/job/all";
     }
+    @GetMapping("delete/id={id}/{comid}")
+    public String deleteEditableJob(@PathVariable Map<String, String> pathVarsMap, Model model) {
+        service.deleteJob(Long.parseLong(pathVarsMap.get("id")));
+        return "redirect:/job/all/editable/comid="+pathVarsMap.get("comid");
+    }
     @GetMapping("/id={id}")
     public String getJob(@PathVariable long id, Model model){
         model.addAttribute("job", service.getJob(id));
@@ -52,6 +60,12 @@ public class JobController {
     @PostMapping("/update-job")
     public String updateJob(Job job){
         service.updateJob(job);
-        return "redirect:/job/all/comid="+job.getCompanyID();
+        return "redirect:/job/all/editable/comid="+job.getCompanyID();
+    }
+
+    @GetMapping("all/editable/comid={comid}")
+    public String getEditableJobs(@PathVariable long comid, Model model){
+        model.addAttribute("jobList", service.getJobsByComp(comid));
+        return "job/list-jobs-editable.html";
     }
 }

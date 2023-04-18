@@ -64,7 +64,11 @@ public class Recruiter_CompanyController {
         model.addAttribute("comid", Long.parseLong(pathVarsMap.get("comid")));
         return "/rec_com/recruit-recruiter-detail.html";
     }
-
+    @PostMapping("/delete")
+    public String deleteRel(Recruiter_Company reccom, Model model){
+        service.delreccom(reccom.getRecid(), reccom.getComid());
+        return "redirect:/rec_com/recruiters/comid=" + reccom.getComid();
+    }
     @PostMapping("/newrel")
     public String newRelation(Recruiter_Company reccom){
         service.savereccom(reccom);

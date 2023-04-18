@@ -16,12 +16,12 @@
   <div class="card">
     <div class="card-body">
       <div class="col-md-10">
-        <a th:href="@{/job/delete/id={id} (id=${job.id})}">Delete </a>
+        <a th:href="@{/job/delete/id={id}/{comid} (id=${job.id}, comid=${job.companyID})}">Delete </a>
         <form action="#" th:action="@{/job/update-job}" th:object="${job}"
               method="post">
 
           <table border="0" cellpadding="10">
-            <tr>
+            <tr style="display:none">
               <td>ID:</td>
               <td><input type="number" th:field="*{id}" value="${job.id}" readonly /></td>
             </tr>
@@ -33,21 +33,21 @@
               <td>Desc</td>
               <td><input type="text" th:field="*{descr}" value="${job.descr}"/></td>
             </tr>
-            <tr>
+            <tr style="display:none">
               <td>CompanyID</td>
               <td><input type="text" th:field="*{companyID}" value="${job.companyID}"/></td>
             </tr>
-            <tr>
+            <tr style="display:none">
               <td>DatePosted</td>
               <td><input type="text" th:field="*{datePosted}" value="${job.datePosted}"/></td>
             </tr>
             <tr>
               <td>SalaryHigh</td>
-              <td><input type="text" th:field="*{salaryHigh}" value="${job.salaryHigh}"/></td>
+              <td><input type="text" th:field="*{salaryHigh}" value="'$' + ${job.salaryHigh}"/></td>
             </tr>
             <tr>
               <td>SalaryLow</td>
-              <td><input type="text" th:field="*{salaryLow}" value="${job.salaryLow}"/></td>
+              <td><input type="text" th:field="*{salaryLow}" value="'$' + ${job.salaryLow}"/></td>
             </tr>
 
             <tr>

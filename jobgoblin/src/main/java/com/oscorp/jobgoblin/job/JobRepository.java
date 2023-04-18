@@ -1,4 +1,6 @@
 package com.oscorp.jobgoblin.job;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,9 @@ public class JobRepository {
         paramMap.put("name", job.getName());
         paramMap.put("descr", job.getDescr());
         paramMap.put("companyID", job.getCompanyID());
-        paramMap.put("datePosted", job.getDatePosted());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        paramMap.put("datePosted", dtf.format(now));
         paramMap.put("salaryHigh", job.getSalaryHigh());
         paramMap.put("salaryLow", job.getSalaryLow());
         String query = "INSERT INTO job(name, descr, companyID, date_Posted, salary_High, salary_Low) VALUES(:name, :descr, :companyID, :datePosted, :salaryHigh, :salaryLow)";

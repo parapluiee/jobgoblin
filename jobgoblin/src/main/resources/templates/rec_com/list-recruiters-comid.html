@@ -14,8 +14,8 @@
     <body>
         <div class="container">
 
-            <h1 style="text-align:center;">Company Recruits</h1>
-
+            <h1 style="text-align:center;">Recruits</h1>
+            <a th:href="@{/company/id={id} (id=${comid})}"> <-Back</a>
             <div style="align-content: center;">
                 <p class="my-5">
                     <a th:href="@{/rec_com/recruiterswo/comid={comid} (comid=${comid})}" class="btn btn-primary" >On-Board Recruiter</a>
@@ -24,25 +24,18 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>test</th>
-                            <th>ID</th>
+                            <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Description</th>
                             <th>StartDate</th>
-                            <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="recruiter : ${recruiterList}">
-                            <td>
-                            </td>
-                            <td> <a th:href="@{/rec_com/recruit/{recid}/{comid} (recid=${recruiter.id}, comid=${comid})}" th:text=" ${recruiter.id}" > </a></td>
+                            <td> <a th:href="@{/rec_com/recruit/{recid}/{comid} (recid=${recruiter.id}, comid=${comid})}" >Detail </a></td>
                             <td th:text=" ${recruiter.name}"></td>
                             <td th:text=" ${recruiter.email}"></td>
-                            <td th:text=" ${recruiter.description}"></td>
                             <td th:text=" ${recruiter.startDate}"></td>
-                            <td th:text=" ${recruiter.rating}"></td>
                         </tr>
 
                     </tbody>
