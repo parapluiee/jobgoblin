@@ -4,27 +4,24 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <title>Book Info</title>
+  <title>Job Info</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 </head>
 <body>
 <div class="container">
-  <h1 style="text-align:center;">Book Info</h1>
+  <h1 style="text-align:center;">Job Info</h1>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Job</h5>
       <p class="card-text" th:text=" 'ID: '+ ${job.id}" />
       <p class="card-text" th:text="'Descr: '+${job.descr}" />
       <p class="card-text" th:text="'companyID: '+${job.companyID}" />
-      <p class="card-text" th:text="'RecruiterID: '+${job.recruiterID}" />
-      <p class="card-text" th:text="'Rating: '+${job.rating}" />
-      <p class="card-text" th:text=" 'NumRatings: '+ ${job.numRatings}" />
       <p class="card-text" th:text="'SalaryHigh: '+${job.datePosted}" />
       <p class="card-text" th:text="'DatePosted: '+${job.salaryHigh}" />
       <p class="card-text" th:text="'SalaryLow: '+${job.salaryLow}" />
-      <p class="card-text" th:text="'QuizID: '+${job.quizID}" />
+\\
     </div>
   </div>
 </div>
