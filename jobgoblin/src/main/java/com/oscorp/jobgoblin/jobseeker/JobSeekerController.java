@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author Maximilian
  */
-
 @Controller
 @RequestMapping("jobseeker")
 public class JobSeekerController {
-    
+
     @Autowired
     JobSeekerService service;
 
@@ -41,7 +40,6 @@ public class JobSeekerController {
 
     @PostMapping("/create")
     public String createJobSeeker(JobSeeker jobseeker) {
-
         service.saveJobSeeker(jobseeker);
         return "redirect:/jobseeker/all";
     }

@@ -28,13 +28,9 @@ public class Job {
     Job(String name,
         String descr,
         long companyID,
-        long recruiterID,
-        double rating,
-        int numRatings,
         String datePosted,
         int salaryHigh,
-        int salaryLow,
-        long quizID){
+        int salaryLow){
 
         this.name = name;
         this.descr = descr;
