@@ -18,36 +18,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class JobSeekerController {
     
     @Autowired
-    JobSeekerService jseekerService;
+    JobSeekerService service;
 
     @GetMapping("/all")
     public String getAllJobSeekers(Model model) {
-        model.addAttribute("jobseekerList", jseekerService.getAllJobSeekers());
+        model.addAttribute("jobseekerList", service.getAllJobSeekers());
         return "jobseeker/list-jobseekers";
     }
 
-    @GetMapping("/id={jseekerId}")
+    @GetMapping("/id={jobseekerId}")
     public String getJobSeeker(@PathVariable long jobseekerId, Model model) {
-        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        model.addAttribute("jobseeker", service.getJobSeeker(jobseekerId));
         return "jobseeker/jobseeker-detail";
     }
 
     @GetMapping("/delete/id={jobseekerId}")
     public String deleteJobSeeker(@PathVariable long jobseekerId, Model model) {
-        jseekerService.deleteJobSeeker(jobseekerId);
+        service.deleteJobSeeker(jobseekerId);
         return "redirect:/jobseeker/all";
     }
 
     @PostMapping("/create")
     public String createJobSeeker(JobSeeker jobseeker) {
 
-        jseekerService.saveJobSeeker(jobseeker);
+        service.saveJobSeeker(jobseeker);
         return "redirect:/jobseeker/all";
     }
 
     @PostMapping("/update")
     public String updateJobSeeker(JobSeeker jobseeker) {
-        jseekerService.saveJobSeeker(jobseeker);
+        service.saveJobSeeker(jobseeker);
         return "redirect:/jobseeker/all";
     }
 
@@ -56,9 +56,9 @@ public class JobSeekerController {
         return "jobseeker/new-jobseeker";
     }
 
-    @GetMapping("/update/id={jseekerId}")
+    @GetMapping("/update/id={jobseekerId}")
     public String updateJobSeekerForm(@PathVariable long jobseekerId, Model model) {
-        model.addAttribute("jobseeker", jseekerService.getJobSeeker(jobseekerId));
+        model.addAttribute("jobseeker", service.getJobSeeker(jobseekerId));
         return "jobseeker/update-jobseeker";
     }
 }

@@ -9,35 +9,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+        <style>
+            body {
+                background-color: #1e1e1e;
+            }
+        </style>
         
     </head>
     <body>
         <div class="container">
 
-            <h1 style="text-align:center;">Job Seeker List</h1>
+            <h1 style="color: #007acc;text-align:center;">Job Seeker List</h1>
 
-            <div style="align-content: center;">
-                <p class="my-5">
-                    <a href="/jobseeker/new-jobseeker" class="btn btn-primary" >Add Job Seeker</a>
-                </p>
-
+            <div style="background-color: #3e3e42;color: #007acc;align-content: center;">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Date of Birth</th>
+                            <th>Description</th>
                             <th>Previous Salary</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="jobSeeker : ${jobSeekerList}">
-                            <td> <a th:href="@{/jseeker/id={id}(id=${jseeker.id})}" th:text=" ${book.id}" > </a></td>                           
-                            <td th:text=" ${jseeker.name}"></td>
-                            <td th:text=" ${jseeker.username}"></td>
-                            <td th:text=" ${jseeker.email}"></td>
-                            <td th:text=" ${jseeker.prevSalary}"></td>
+                        <tr th:each="jobseeker : ${jobseekerList}">                           
+                            <td th:text=" ${jobseeker.name}"></td>
+                            <td> <a th:href="@{/jobseeker/id={id}(id=${jobseeker.jobseekerId})}"th:text=" ${jobseeker.username}"></a></td>
+                            <td th:text=" ${jobseeker.email}"></td>
+                            <td th:text=" ${jobseeker.dob}"></td>
+                            <td th:text=" ${jobseeker.description}"></td>
+                            <td th:text=" ${jobseeker.prevSalary}"></td>
                         </tr>
                     </tbody>
                 </table>

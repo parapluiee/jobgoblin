@@ -23,16 +23,22 @@ import lombok.Setter;
 public class JobSeeker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long jobseekerId;
     private String name;
     private String username;
+    private String password;
     private String email;
+    private String dob;
+    private String description;
     private double prevSalary;
 
-    public JobSeeker(String name, String username, String email, double prevsalary) {
+    public JobSeeker(String name, String username,String password,String email,String dob,String desc,double prevsalary) {
         this.name = name;
         this.username = username;
+        this.password = password;
         this.email = email;
+        this.dob = dob;
+        this.description = desc;
         this.prevSalary = prevsalary;
     }
 }

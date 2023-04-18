@@ -21,49 +21,57 @@ public class JobSeekerRepository {
     NamedParameterJdbcTemplate template;
 
     List<JobSeeker> findAll() {
-        String query = "select id, name,username,email,prevSalary from jobseeker";
+        String query = "select jobseeker_id, name,username,password,email,dob,description,prev_salary from jobseeker";
         return template.query(query,
                 (result, rowNum)
-                        -> new JobSeeker(result.getLong("id"),
+                        -> new JobSeeker(result.getLong("jobseeker_id"),
                         result.getString("name"), result.getString(
                         "username"),result.getString(
-                        "email"),result.getDouble(
-                        "prevSalary")));
+                        "password"),result.getString(
+                        "email"),result.getString("dob"),
+                        result.getString("description"),result.getDouble(
+                        "prev_salary")));
     }
 
     public JobSeeker getJobSeekerById(long id) {
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
-                "id", id);
-        String query = "select * from jobseeker where id=:id ";
+                "jobseekerId", id);
+        String query = "select * from jobseeker where jobseeker_id=:jobseekerId ";
         return template.queryForObject(query, namedParameters,
                 BeanPropertyRowMapper.newInstance(JobSeeker.class));
     }
 
-    public int saveJobSeeker(JobSeeker jseeker) {
+    public int saveJobSeeker(JobSeeker jobseeker) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("name", jseeker.getName());
-        paramMap.put("username", jseeker.getUsername());
-        paramMap.put("email", jseeker.getEmail());
-        paramMap.put("prevSalary", jseeker.getPrevSalary());
-        String query = "INSERT INTO jobseeker(name,username,email,prevSalary) " +
-                "VALUES(:name, :username, :email, :prevSalary)";
+        paramMap.put("name", jobseeker.getName());
+        paramMap.put("username", jobseeker.getUsername());
+        paramMap.put("password", jobseeker.getPassword());
+        paramMap.put("email", jobseeker.getEmail());
+        paramMap.put("dob", jobseeker.getDob());
+        paramMap.put("description", jobseeker.getDescription());
+        paramMap.put("prevSalary", jobseeker.getPrevSalary());
+        String query = "INSERT INTO jobseeker(name,username,password,email,dob,description,prev_salary) " +
+                "VALUES(:name, :username, :password, :email, :dob, :description, :prevSalary)";
         return template.update(query, paramMap);
     }
 
     void deleteJobSeekerById(long id) {
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
-                "id", id);
-        String query = "delete from jobSeeker where id=:id";
+                "jobseekerId", id);
+        String query = "delete from jobSeeker where jobseeker_id=:jobseekerId";
         template.update(query, namedParameters);
     }
 
-    void updateJobSeeker(JobSeeker jseeker) {
+    void updateJobSeeker(JobSeeker jobseeker) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("name", jseeker.getName());
-        paramMap.put("username", jseeker.getUsername());
-        paramMap.put("email", jseeker.getEmail());
-        paramMap.put("prevSalary", jseeker.getPrevSalary());
-        String query = "update jobseeker set name=:name,username=:username,email=:email,prevSalary=:prevSalary where id=:id";
+        paramMap.put("name", jobseeker.getName());
+        paramMap.put("username", jobseeker.getUsername());
+        paramMap.put("password", jobseeker.getPassword());
+        paramMap.put("email", jobseeker.getEmail());
+        paramMap.put("dob", jobseeker.getDob());
+        paramMap.put("description", jobseeker.getDescription());
+        paramMap.put("prevSalary", jobseeker.getPrevSalary());
+        String query = "update jobseeker set name=:name,username=:username,password=:password,email=:email,dob=:dob,desc=:desc,prev_salary=:prevSalary where jobseeker_id=:jobseekerId";
         template.update(query, paramMap);
     }
 }

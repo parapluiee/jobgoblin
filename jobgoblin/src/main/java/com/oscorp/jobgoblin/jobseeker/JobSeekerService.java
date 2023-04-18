@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class JobSeekerService {
     
     @Autowired
-    private JobSeekerRepository repo;
+    protected JobSeekerRepository repo;
 
     public List<JobSeeker> getAllJobSeekers() {
         return repo.findAll();
