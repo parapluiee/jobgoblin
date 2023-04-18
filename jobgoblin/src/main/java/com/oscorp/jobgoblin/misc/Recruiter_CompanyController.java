@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.Map;
 
 @Controller
@@ -19,17 +21,32 @@ public class Recruiter_CompanyController {
     private Recruiter_CompanyService service;
 
     @Autowired RecruiterService recService;
-    @GetMapping("/recruit")
-    public String getRecruiter(Map<String, Long> pathVarsMap, Model model) {
-        Recruiter rec = recService.getRecruiter(pathVarsMap.get("recid"));
+    @GetMapping("/recruit/{recid}/{comid}")
+    public String getRecruiter(@PathVariable Map<String, String> pathVarsMap, Model model) {
+        System.out.println(Long.parseLong(pathVarsMap.get("recid")));
+        Recruiter rec = recService.getRecruiter(Long.parseLong(pathVarsMap.get("recid")));
         model.addAttribute("recruiter", rec);
-        model.addAttribute("comid", pathVarsMap.get("comid"));
-
+        model.addAttribute("comid", Long.parseLong(pathVarsMap.get("comid")));
+        String relationship = "none";
+        switch (service.getRel(Long.parseLong(pathVarsMap.get("comid")), Long.parseLong(pathVarsMap.get("recid")))) {
+            case 0:{relationship = "Awaiting Response"; break;
+            }
+            case 1:{relationship = "Hired"; break;}
+            case 2:{relationship = "Rejected"; break;}
+            }
+        model.addAttribute("relationship", relationship);
         return "rec_com/recruiter-detail";
     }
     @GetMapping("/recruiters/comid={comid}")
     public String recruitRecruiter(@PathVariable long comid, Model model){
-        model.addAttribute("recruiterList", recService.getAllRecruiters());
+        ArrayList<Recruiter_Company> reccoms = new ArrayList(service.getByCom(comid));
+        ArrayList<Recruiter> recruiters = new ArrayList<>();
+        System.out.println(reccoms.size());
+        for (int i = 0; i < reccoms.size(); i++){
+            recruiters.add(recService.getRecruiter(reccoms.get(i).getRecid()));
+        }
+        model.addAttribute("recruiterList", recruiters);
+
         return "rec_com/list-recruiters-comid.html";
     }
 
@@ -38,7 +55,19 @@ public class Recruiter_CompanyController {
         model.addAttribute("recruiterList", service.getRecwoRel(comid));
         model.addAttribute("comid", comid);
         model.addAttribute("reccom", new Recruiter_Company(comid, 0, 0));
-        return "list-recruiter-comid.html";
+        return "rec_com/list-recruiterswo-comid.html";
     }
 
+    @GetMapping("/recruitrec/{comid}/{recid}")
+    public String recruitRec(@PathVariable Map<String, String> pathVarsMap, Model model){
+        model.addAttribute("recruiter", recService.getRecruiter(Long.parseLong(pathVarsMap.get("recid"))));
+        model.addAttribute("comid", Long.parseLong(pathVarsMap.get("comid")));
+        return "/rec_com/recruit-recruiter-detail.html";
+    }
+
+    @PostMapping("/newrel")
+    public String newRelation(Recruiter_Company reccom){
+        service.savereccom(reccom);
+        return "redirect:/rec_com/recruiterswo/comid=" + reccom.getComid();
+    }
 }

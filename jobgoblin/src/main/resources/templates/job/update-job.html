@@ -16,6 +16,7 @@
   <div class="card">
     <div class="card-body">
       <div class="col-md-10">
+        <a th:href="@{/job/delete/id={id} (id=${job.id})}">Delete </a>
         <form action="#" th:action="@{/job/update-job}" th:object="${job}"
               method="post">
 

@@ -25,4 +25,11 @@ public class Recruiter_CompanyService {
     List<Recruiter> getRecwoRel(long comid){
         return repo.getRecwoRel(comid);
     }
+
+    int savereccom(Recruiter_Company reccom){
+        return repo.savRecCom(reccom);
+    }
+    void updatereccom(Recruiter_Company reccom){
+        repo.updatereccom(reccom);
+    }
 }

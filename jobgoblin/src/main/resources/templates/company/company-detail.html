@@ -28,7 +28,9 @@
   </div>
   <div>
   <a th:href="@{/job/all/comid={id}(id=${company.id})}">View Created Jobs </a> <a>|</a>
-  <a th:href="@{/job/new-job/comid={id}(id=${company.id})}"> New Job </a>
+  <a th:href="@{/job/new-job/comid={id}(id=${company.id})}"> New Job </a> <a>|</a>
+    <a th:href="@{/rec_com/recruiters/comid={id} (id=${company.id})}"> Recruiters </a>
+
   </div>
   </div>
 </body>

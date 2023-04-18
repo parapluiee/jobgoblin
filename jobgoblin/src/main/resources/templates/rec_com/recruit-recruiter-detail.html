@@ -14,6 +14,12 @@
     <body>
         <div class="container">
             <h1 style="text-align:center;">Recruiter Profile Page</h1>
+            <form action="/rec_com/newrel" method="post">
+                <input type="number" name ="recid" id="recid" class="formcontrol" th:value="${recruiter.id}" readonly /></td>
+                <input type="number" name ="comid" id="comid" class="formcontrol" th:value="${comid}" readonly /></td>
+                <input type="number" name ="rel" id="rel" class="formcontrol" value="0" readonly /></td>
+                <button type="submit"></button>
+            </form>
             <div class="card" style="width: 18rem;">                
                 <div class="card-body">
                     <h5 class="card-title">Recruiter</h5>
@@ -23,7 +29,6 @@
                     <p class="card-text" th:text="'Description: '+${recruiter.description}" />
                     <p class="card-text" th:text="'Start Date: '+${recruiter.startDate}" />
                     <p class="card-text" th:text="'Rating: '+${recruiter.rating}" />
-                    <p class="card-text" th:text="'Relationship: '+${relationship}" />
                 </div>
             </div>
         </div>
