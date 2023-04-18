@@ -55,4 +55,9 @@ public class CompanyController {
         service.recruitToCompany(reccom);
         return "redirect:/rec_com/all/comid="+reccom.getComid();
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "company/login";
+    }
 }

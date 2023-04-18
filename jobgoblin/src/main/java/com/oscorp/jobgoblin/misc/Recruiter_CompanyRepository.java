@@ -72,4 +72,10 @@ public class Recruiter_CompanyRepository {
         String query = "update recruiter_company set recid=:recid, comid=:comid, rel=:rel where recid:recid";
         template.update(query, paramMap);
     }
+    void deletereccom(long recid, long comid){
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("recid", recid).addValue("comid", comid);
+        String query = "delete from recruiter_company where recid=:recid and comid=:comid";
+        template.update(query, namedParameters);
+    }
+
 }
