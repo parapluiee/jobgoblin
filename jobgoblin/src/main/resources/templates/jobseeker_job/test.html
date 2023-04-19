@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/jobs_job/create" method="post">
+    <div class="form-group">
+        <label for="jobsid">Name:</label>
+        <input type="number" class="form-control" name="jobsid" id="jobsid1" placeholder="Enter jobsid"></input>
+    </div>
+    <div class="form-group">
+        <label for="jobsid">Name:</label>
+        <input type="number" class="form-control" name="jobid" id="jobid1" placeholder="Enter jobid"></input>
+    </div>
+    <div class="form-group">
+        <label for="rel">Name:</label>
+        <input type="number" class="form-control" name="rel" id="rel1" placeholder="Enter rel"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<form action="/jobs_job/update" method="post">
+    <div class="form-group">
+        <label for="jobsid">Jobsid:</label>
+        <input type="number" class="form-control" name="jobsid" id="jobsid2" placeholder="Enter jobsid"></input>
+    </div>
+    <div class="form-group">
+        <label for="jobsid">jobid:</label>
+        <input type="number" class="form-control" name="jobid" id="jobid2" placeholder="Enter jobid"></input>
+    </div>
+    <div class="form-group">
+        <label for="rel">rel:</label>
+        <input type="number" class="form-control" name="rel" id="rel2" placeholder="Enter rel"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<form action="/jobs_job/delete" method="post">
+    <div class="form-group">
+        <label for="jobsid">jobsid:</label>
+        <input type="number" class="form-control" name="jobsid" id="jobsid" placeholder="Enter jobsid"></input>
+    </div>
+    <div class="form-group">
+        <label for="jobsid">jobid:</label>
+        <input type="number" class="form-control" name="jobid" id="jobid" placeholder="Enter jobid"></input>
+    </div>
+    <div class="form-group">
+        <label for="rel">rel (doesnt matter):</label>
+        <input type="number" class="form-control" name="rel" id="rel" placeholder="(Doesnt matter)"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
