@@ -42,5 +42,10 @@ public class Jobseeker_JobController {
         return "redirect:/jobs_job/create-relation";
     }
 
+    @GetMapping("/jobs/jobsid={jobsid}")
+    String getJobbyRelation(@PathVariable long jobsid, Model model){
+        model.addAttribute("jobList", service.getJobByJobsidAndRel(jobsid, 1));
+        return "job/list-jobs-virgin";
+    }
 
 }

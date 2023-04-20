@@ -12,7 +12,7 @@ public class JobService {
     @Autowired
     RecruiterRepository repo2;
 
-    List<Job> getAllJobs() {return repo.findAll();}
+    public List<Job> getAllJobs() {return repo.findAll();}
     List<Job> getJobsByComp(long comid){ return repo.findByComp(comid);}
     void saveJob(Job job) {repo.saveJob(job);}
 

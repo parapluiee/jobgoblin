@@ -1,12 +1,14 @@
 package com.oscorp.jobgoblin.jobseeker_job;
 
+import com.oscorp.jobgoblin.job.Job;
+import com.oscorp.jobgoblin.job.JobService;
+import com.oscorp.jobgoblin.jobseeker.JobSeekerService;
 import com.oscorp.jobgoblin.recruiter.Recruiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +31,14 @@ public class Jobseeker_JobRepository {
                 (result, rowNum)
                         -> new Jobseeker_Job(result.getLong("jobsid"),
                         result.getLong("jobid"), result.getInt("rel")));
+    }
+
+    List<Job> getJobByJobsidandRel(long jobsid, long rel){
+        String query = "select id, name, descr, companyID, date_Posted, salary_High, salary_Low from job where id in " +
+                "(select jobid from jobseeker_job where jobsid=" + jobsid + " and rel=" + rel + ")";
+        return template.query(query,
+                (result, rowNum)
+                        -> new Job(result.getLong("id"), result.getString("name"), result.getString("descr"), result.getLong("companyID"), result.getString("date_Posted"), result.getInt("salary_High"), result.getInt("salary_Low")));
     }
 
     int getRel(long jobsid, long jobid){

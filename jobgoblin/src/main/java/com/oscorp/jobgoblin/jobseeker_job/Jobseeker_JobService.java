@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.jobseeker_job;
 
+import com.oscorp.jobgoblin.job.Job;
 import com.oscorp.jobgoblin.recruiter.Recruiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,4 +33,9 @@ public class Jobseeker_JobService {
         repo.updateJobsjob(jobsjob);
     }
     void delreccom(long jobsid, long jobid){repo.deleteJobsjob(jobsid, jobid);}
+
+    List<Job> getJobByJobsidAndRel(long jobsid, int rel){
+        System.out.println(repo.getJobByJobsidandRel(jobsid, rel).get(0));
+        return repo.getJobByJobsidandRel(jobsid, rel);
+    }
 }
