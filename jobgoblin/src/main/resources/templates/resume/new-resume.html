@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create New Job</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+</head>
+<body>
+<h1 style="text-align:center;">Enter Job Info</h1>
+
+<div style="align-content: center;">
+    <form action="/job/create" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Job name"></input>
+        </div>
+        <div class="form-group">
+            <label for="descr">Desc:</label>
+            <input type="text" class="form-control" name="descr" id="descr" placeholder="Enter Job desc"></input>
+        </div>
+        <div class="form-group">
+            <label for="companyID">Company ID:</label>
+            <input type="number" class="form-control" name="companyID" id="companyID" th:value="${comid}" readonly></input>
+        </div>
+        <div class="form-group">
+            <label for="datePosted">datePosted:</label>
+            <input type="text" class="form-control" name="datePosted" id="datePosted" placeholder="Enter datePosted"></input>
+        </div>
+        <div class="form-group">
+            <label for="salaryHigh">salaryHigh:</label>
+            <input type="number" class="form-control" name="salaryHigh" id="salaryHigh" placeholder="Enter salaryHigh"></input>
+        </div>
+        <div class="form-group">
+            <label for="salaryLow">salaryLow:</label>
+            <input type="number" class="form-control" name="salaryLow" id="salaryLow" placeholder="Enter salaryLow"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+</div>
+</body>
+</html>

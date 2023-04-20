@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Update Job</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+</head>
+<body background="#f2f0e4">
+<div class="container my-5">
+  <h3> Enter Job Info</h3>
+  <div class="card">
+    <div class="card-body">
+      <div class="col-md-10">
+        <a th:href="@{/job/delete/id={id} (id=${job.id})}">Delete </a>
+        <form action="#" th:action="@{/job/update-job}" th:object="${job}"
+              method="post">
+
+          <table border="0" cellpadding="10">
+            <tr>
+              <td>ID:</td>
+              <td><input type="number" th:field="*{id}" value="${job.id}" readonly /></td>
+            </tr>
+            <tr>
+              <td>Name:</td>
+              <td><input type="text" th:field="*{name}" value="${job.name}"/></td>
+            </tr>
+            <tr>
+              <td>Desc</td>
+              <td><input type="text" th:field="*{descr}" value="${job.descr}"/></td>
+            </tr>
+            <tr>
+              <td>CompanyID</td>
+              <td><input type="text" th:field="*{companyID}" value="${job.companyID}"/></td>
+            </tr>
+            <tr>
+              <td>DatePosted</td>
+              <td><input type="text" th:field="*{datePosted}" value="${job.datePosted}"/></td>
+            </tr>
+            <tr>
+              <td>SalaryHigh</td>
+              <td><input type="text" th:field="*{salaryHigh}" value="${job.salaryHigh}"/></td>
+            </tr>
+            <tr>
+              <td>SalaryLow</td>
+              <td><input type="text" th:field="*{salaryLow}" value="${job.salaryLow}"/></td>
+            </tr>
+
+            <tr>
+              <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+
+          </table>
+        </form>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
