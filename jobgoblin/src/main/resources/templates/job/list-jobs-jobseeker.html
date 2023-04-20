@@ -10,16 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-
+     <style>
+            body {
+                background-color: #1e1e1e;
+            }
+        </style>
 </head>
 <body background="#88c7ac">
 
 <div class="container">
 
-    <h1 style="text-align:center;">Assigned Jobs</h1>
-
-    <div style="align-content: center;">
-
+    <h1 style="color: #007acc;text-align:center;">Listed Jobs</h1>
+    <div style="background-color: #3e3e42;color: white;align-content: center;">
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -27,7 +29,7 @@
                 <th>Job title</th>
                 <th>Description</th>
                 <th>Date Posted</th>
-                <th>Estimated salary</th>
+                <th>Estimated salary starting pay:</th>
             </tr>
             </thead>
             <tbody>
@@ -36,7 +38,7 @@
                 <td th:text = " ${job.name}"><</td>
                 <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.datePosted}"></td>
-                <td th:text = "${job.salaryLow} /- ${job.salaryHigh}"></td>
+                <td th:text = "${job.salaryLow}"></td>
             </tr>
             </tbody>
         </table>
