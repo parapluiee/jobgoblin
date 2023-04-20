@@ -1,4 +1,4 @@
-package com.oscorp.jobgoblin.jobseeker;
+package com.oscorp.jobgoblin.resume;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,29 +16,29 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @Entity
-@Table(name = "jobseeker")
+@Table(name = "resume")
 @NoArgsConstructor
 @Getter
 @Setter
-public class JobSeeker {
+public class Resume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long resumeId;
     private long jobseekerId;
     private String name;
-    private String username;
-    private String password;
-    private String email;
-    private String dob;
+    private String city;
     private String description;
-    private double prevSalary;
+    private String experience;
+    private String previousJobs;
+    private String email;
 
-    public JobSeeker(String name, String username,String password,String email,String dob,String desc,double prevsalary) {
+    public Resume(long jobseekid,String name, String city, String desc, String exper, String prev_jobs, String email) {
+        this.jobseekerId = jobseekid;
         this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.dob = dob;
+        this.city = city;
         this.description = desc;
-        this.prevSalary = prevsalary;
+        this.experience = exper;
+        this.previousJobs = prev_jobs;
+        this.email = email;
     }
 }

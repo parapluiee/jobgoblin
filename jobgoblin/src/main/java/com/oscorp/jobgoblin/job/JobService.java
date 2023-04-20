@@ -7,7 +7,7 @@ public class JobService {
     @Autowired
     JobRepository repo;
 
-    List<Job> getAllJobs() {return repo.findAll();}
+    public List<Job> getAllJobs() {return repo.findAll();}
     List<Job> getJobsByComp(long comid){ return repo.findByComp(comid);}
     void saveJob(Job job) {repo.saveJob(job);}
 
