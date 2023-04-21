@@ -1,5 +1,7 @@
 package com.oscorp.jobgoblin.jobseeker;
 
+import com.oscorp.jobgoblin.job.Job;
+import com.oscorp.jobgoblin.job.JobRepository;
 import java.util.List;
 
 import com.oscorp.jobgoblin.recruiter.Recruiter;
@@ -18,8 +20,11 @@ public class JobSeekerService {
     @Autowired
     protected JobSeekerRepository repo;
 
-    @Autowired
+    protected JobRepository jobrepo;
     RecruiterRepository repo2;
+    public List<Job> getAllJobs() {
+        return repo.findAllJobs();
+    }
 
     Recruiter getRecById(long id){return repo2.getRecruiterById(id);}
 

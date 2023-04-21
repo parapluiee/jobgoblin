@@ -14,15 +14,16 @@
                 background-color: #1e1e1e;
             }
         </style>
-        
+
     </head>
     <a th:href="@{/job/all/comid=1/recid={id}(id=${recruiter.id})}" class="btn btn-primary" th:text = "Back" >  </a>
     <body>
         <div class="container">
-
-            <h1 style="color: #007acc;text-align:center;">Job Seeker List</h1>
-
-            <div style="background-color: #3e3e42;color: #007acc;align-content: center;">
+            <p class="my-5">
+                <a href="/jobseeker/new-jobseeker" class="btn btn-primary">Create Account</a>
+            </p>
+            <h1 style="color: #007acc; text-align:center;">Job Seeker List</h1>
+            <div style="background-color: #3e3e42; color: white; align-content: center;">
                 <table class="table table-bordered">
                     <thead>
                         <tr>

@@ -1,5 +1,6 @@
 package com.oscorp.jobgoblin.jobseeker;
 
+import com.oscorp.jobgoblin.job.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,23 +19,24 @@ public class JobSeekerController {
 
     @Autowired
     JobSeekerService service;
+    private JobService jobservice;
+
+    @GetMapping("/job/all")
+    public String getAllJobs(Model model) {
+        model.addAttribute("jobList", jobservice.getAllJobs());
+        return "job/list-jobs-jobseeker.html";
+    }
 
     @GetMapping("/all")
     public String getAllJobSeekers(Model model) {
         model.addAttribute("jobseekerList", service.getAllJobSeekers());
         return "jobseeker/list-jobseekers";
     }
-    @GetMapping("all/comid={comid}/recid={recid}")
-    public String getAllJobSeekersByRec(@PathVariable long comid, @PathVariable long recid,Model model) {
-        model.addAttribute("jobseekerList", service.getAllJobSeekers());
-        model.addAttribute("recruiter", service.getRecById(recid));
-        return "jobseeker/list-jobseekers";
-    }
 
     @GetMapping("/id={jobseekerId}")
     public String getJobSeeker(@PathVariable long jobseekerId, Model model) {
         model.addAttribute("jobseeker", service.getJobSeeker(jobseekerId));
-        return "jobseeker/jobseeker-detail";
+        return "jobseeker/jobseeker-profile";
 
     }
 
@@ -52,13 +54,13 @@ public class JobSeekerController {
 
     @PostMapping("/update")
     public String updateJobSeeker(JobSeeker jobseeker) {
-        service.saveJobSeeker(jobseeker);
+        service.updateJobSeeker(jobseeker);
         return "redirect:/jobseeker/all";
     }
 
     @GetMapping("/new-jobseeker")
     public String newJobSeekerForm(Model model) {
-        return "templates/jobseeker/new-jobseeker";
+        return "/jobseeker/new-jobseeker";
     }
 
     @GetMapping("/update/id={jobseekerId}")

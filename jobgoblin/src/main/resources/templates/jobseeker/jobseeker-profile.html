@@ -18,17 +18,19 @@
     <body>
         <div class="container">
             <h1 style="background-color: #3e3e42;color: #007acc;text-align:center;">Job Seeker Info</h1>
-            <div class="card" style="background-color: #3e3e42;color: #007acc;width: 18rem;">                
+            <div class="card" style="background-color: #3e3e42;color: white;width: 18rem;">                
                 <div  class="card-body">
                     <h5 class="card-title">Job Seeker</h5>
-                    <p class="card-text" th:text=" 'JobSeekerID: '+ ${jobseeker.id}" />
                     <p class="card-text" th:text="'Name: '+${jobseeker.name}" />
                     <p class="card-text" th:text="'Username: '+${jobseeker.username}" />
                     <p class="card-text" th:text="'Email: '+${jobseeker.email}" />
                     <p class="card-text" th:text="'Date of Birth: '+${jobseeker.dob}"/>
                     <p class="card-text" th:text="'Description: '+${jobseeker.description}"/>
-                    <p class="card-text" th:text="'Previous Salary: '+${jobseeker.prevsalary}" />                        
-                    <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.id})}" class="btn btn-primary">Edit</a>
+                    <p class="card-text" th:text="'Previous Salary: '+${jobseeker.prevSalary}" />                        
+                    <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.jobseekerId})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.jobseekerId})}" class="btn btn-primary">Resume</a>
+                    <a th:href="@{/job/all}" class="btn btn-primary">Jobs</a>
+                    
                 </div>
             </div>
         </div>

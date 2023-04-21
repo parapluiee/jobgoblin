@@ -11,8 +11,8 @@
 </head>
 <body>
 <div class="container">
-  <h1 style="text-align:center;">Job Info</h1>
-  <div class="card" style="width: 18rem;">
+  <h1 style="background-color: #3e3e42;color: #007acc;text-align:center;">Job Info</h1>
+  <div class="card" style="background-color: #3e3e42;color: white;width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Job</h5>
       <p class="card-text" th:text=" 'ID: '+ ${job.id}" />
@@ -21,7 +21,7 @@
       <p class="card-text" th:text="'SalaryHigh: '+${job.datePosted}" />
       <p class="card-text" th:text="'DatePosted: '+${job.salaryHigh}" />
       <p class="card-text" th:text="'SalaryLow: '+${job.salaryLow}" />
-\\
+      <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.jobseekerId})}" class="btn btn-primary">Apply</a>
     </div>
   </div>
 </div>
