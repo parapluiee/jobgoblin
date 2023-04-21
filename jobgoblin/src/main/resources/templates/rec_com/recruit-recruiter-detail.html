@@ -14,16 +14,16 @@
     <body>
         <div class="container">
             <h1 style="text-align:center;">Recruiter Profile Page</h1>
+            <a th:href="@{/rec_com/recruiters/comid={comid} (comid=${comid})}"> <-Back</a>
             <form action="/rec_com/newrel" method="post">
-                <input type="number" name ="recid" id="recid" class="formcontrol" th:value="${recruiter.id}" readonly /></td>
-                <input type="number" name ="comid" id="comid" class="formcontrol" th:value="${comid}" readonly /></td>
-                <input type="number" name ="rel" id="rel" class="formcontrol" value="0" readonly /></td>
-                <button type="submit"></button>
+                <input style = "display:none" type="number" name ="recid" id="recid" class="formcontrol" th:value="${recruiter.id}" readonly /></td>
+                <input style = "display:none" type="number" name ="comid" id="comid" class="formcontrol" th:value="${comid}" readonly /></td>
+                <input style = "display:none" type="number" name ="rel" id="rel" class="formcontrol" value="0" readonly /></td>
+                <button type="submit">Submit Request</button>
             </form>
             <div class="card" style="width: 18rem;">                
                 <div class="card-body">
                     <h5 class="card-title">Recruiter</h5>
-                    <p class="card-text" th:text=" 'ID: '+ ${recruiter.id}" />
                     <p class="card-text" th:text="'Name: '+${recruiter.name}" />
                     <p class="card-text" th:text="'Email: '+${recruiter.email}" />
                     <p class="card-text" th:text="'Description: '+${recruiter.description}" />

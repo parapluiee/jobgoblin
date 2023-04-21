@@ -32,4 +32,5 @@ public class Recruiter_CompanyService {
     void updatereccom(Recruiter_Company reccom){
         repo.updatereccom(reccom);
     }
+    void delreccom(long recid, long comid){repo.deletereccom(recid, comid);}
 }
