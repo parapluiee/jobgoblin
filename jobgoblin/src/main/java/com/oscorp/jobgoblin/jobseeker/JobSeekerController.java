@@ -82,7 +82,7 @@ public class JobSeekerController {
     @PostMapping("/create")
     public String createJobSeeker(JobSeeker jobseeker) {
         service.saveJobSeeker(jobseeker);
-        return "redirect:/jobseeker/id=" + jobseeker.getJobseekerId();
+        return "redirect:/jobseeker/all";
     }
 
     @PostMapping("/update")
