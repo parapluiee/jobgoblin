@@ -28,8 +28,8 @@
                     <p class="card-text" th:text="'Description: '+${jobseeker.description}"/>
                     <p class="card-text" th:text="'Previous Salary: '+${jobseeker.prevSalary}" />                        
                     <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.jobseekerId})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/jobseeker/update/id={id}(id=${jobseeker.jobseekerId})}" class="btn btn-primary">Resume</a>
-                    <a th:href="@{/job/all}" class="btn btn-primary">Jobs</a>
+                    <a th:href="@{/jobseeker/resume}" class="btn btn-primary">Resume</a>
+                    <a th:href="@{/jobseeker/job/all}" class="btn btn-primary">Jobs</a>
                     
                 </div>
             </div>

@@ -21,17 +21,26 @@ public class ResumeRepository {
     @Autowired
     NamedParameterJdbcTemplate template;
 
-    List<Resume> findAll() {
+    public List<Resume> findAll() {
         String query = "select jobseeker_id, name,username,password,email,dob,description,prev_salary from jobseeker";
         return template.query(query,
                 (result, rowNum)
-                        -> new Resume(result.getLong("jobseeker_id"),
+                -> new Resume(result.getLong("jobseeker_id"),
                         result.getString("name"),
                         result.getString("city"), result.getString(
-                        "description"),result.getString(
-                        "experience"),result.getString(
-                        "previous_jobs"),result.getString("email")));
+                        "description"), result.getString(
+                                "experience"), result.getString(
+                                "previous_jobs"), result.getString("email")));
     }
+
+    public Resume getResumeByJobSeekerId(long id) {
+         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
+                "jobseekerId", id);
+        String query = "select * from resume where jobseeker_id=:jobseekerId ";
+        return template.queryForObject(query, namedParameters,
+                BeanPropertyRowMapper.newInstance(Resume.class));
+    }
+
     public int saveResume(Resume resume) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("jobseeker_id", resume.getJobseekerId());
@@ -46,13 +55,8 @@ public class ResumeRepository {
                 + "VALUES(:jobseekerId:name, :city, :description, :experience, :previousJobs, :email)";
         return template.update(query, paramMap);
     }
-    void deleteResumeById(long id) {
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
-                "resumeId", id);
-        String query = "delete from resume where resume_id=:resumeId";
-        template.update(query, namedParameters);
-    }
-     void updateResume(Resume resume) {
+
+    void updateResume(Resume resume) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("jobseeker_id", resume.getJobseekerId());
         paramMap.put("name", resume.getName());

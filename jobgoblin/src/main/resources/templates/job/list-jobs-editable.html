@@ -23,7 +23,6 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th></th>
                 <th>Job title</th>
                 <th>Description</th>
                 <th>Date Posted</th>
@@ -32,7 +31,7 @@
             </thead>
             <tbody>
             <tr th:each="job : ${jobList}">
-                <td> <a th:href="@{/job/update/id={id}(id=${job.id})}" th:text="Edit" > </a></td>
+                
                 <td th:text = " ${job.name}"><</td>
                 <td th:text = " ${job.descr}"></td>
                 <td th:text = " ${job.datePosted}"></td>

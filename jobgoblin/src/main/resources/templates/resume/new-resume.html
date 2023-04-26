@@ -1,44 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Create New Job</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Resume</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <style>
+            body {
+                background-color: #1e1e1e;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
 
-</head>
-<body>
-<h1 style="text-align:center;">Enter Job Info</h1>
+            <h1 style="color: #007acc;text-align:center;">Enter Resume Info</h1>
 
-<div style="align-content: center;">
-    <form action="/job/create" method="post">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Job name"></input>
-        </div>
-        <div class="form-group">
-            <label for="descr">Desc:</label>
-            <input type="text" class="form-control" name="descr" id="descr" placeholder="Enter Job desc"></input>
-        </div>
-        <div class="form-group">
-            <label for="companyID">Company ID:</label>
-            <input type="number" class="form-control" name="companyID" id="companyID" th:value="${comid}" readonly></input>
-        </div>
-        <div class="form-group">
-            <label for="datePosted">datePosted:</label>
-            <input type="text" class="form-control" name="datePosted" id="datePosted" placeholder="Enter datePosted"></input>
-        </div>
-        <div class="form-group">
-            <label for="salaryHigh">salaryHigh:</label>
-            <input type="number" class="form-control" name="salaryHigh" id="salaryHigh" placeholder="Enter salaryHigh"></input>
-        </div>
-        <div class="form-group">
-            <label for="salaryLow">salaryLow:</label>
-            <input type="number" class="form-control" name="salaryLow" id="salaryLow" placeholder="Enter salaryLow"></input>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <div style="background-color: #3e3e42;color: #007acc;align-content: center;">
+                <form action="/jobseeker/resume/create" method="post">
+                    <div class="form-group">
+                        <label for="jobseekerId">JobSeekerId:</label>
+                        <input type="number" class="form-control" name="jobseekerId" id="resumeId" th:value="${jobseekerId}" readonly></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" id="resumeId" placeholder="Enter Professional Name"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" name="city" id="resumeId" placeholder="Enter City"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" name="description" id="resumeId" placeholder="Enter detailed description of your experience"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience:</label>
+                        <input type="text" class="form-control" name="experience" id="resumeId" placeholder="Enter previous experiences in your field"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="previousJobs">Previous Jobs:</label>
+                        <input type="text" class="form-control" name="previousJobs" id="resumeId" placeholder="Enter Previous Jobs"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" name="email" id="resumeId" placeholder="Enter email you want others to know about"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
 
-
-</div>
-</body>
+            </div>
+        </div>
+    </body>
 </html>
